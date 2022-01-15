@@ -1,7 +1,9 @@
 import numpy as np
 
-def getName():
+from InfoState import Observation
+
+def get_name():
     return "callBot"
 
-def act(state, legal_actions):
+def act(observation: Observation):
     return 1
