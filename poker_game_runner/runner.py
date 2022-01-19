@@ -1,8 +1,6 @@
 import numpy as np
 import pyspiel
-import InfoState
-from open_spiel.python.observation import make_observation
-from bots import randombot, foldBot, callBot
+from poker_game_runner import state
 from typing import List, Tuple
 from collections import namedtuple
 
@@ -31,7 +29,7 @@ def play_hand(players: List[Player], blinds: List[int]):
         state.apply_action(np.random.choice(state.legal_actions()))
         continue
 
-    info_state = InfoState.InfoState(state.history(), [p.stack for p in players], [b for b in blinds])
+    info_state = state.InfoState(state.history(), [p.stack for p in players], [b for b in blinds])
 
     while not state.is_terminal():
         if state.is_chance_node():
@@ -93,7 +91,3 @@ def update_active_players(active_players: List[Player], rewards: List[int], big_
 
 def get_blinds_input(current_blinds: BlindScheduleElement, playerCount: int) -> List[int]:
     return [current_blinds.small_blind, current_blinds.big_blind] + ([current_blinds.ante] * (playerCount-2))
-
-bots = [randombot, callBot, randombot, callBot, randombot]
-res = play_tournament_table(bots, 500, [BlindScheduleElement(i, i, 2*i, 0) for i in range(1,100)])
-print(res)
