@@ -5,10 +5,40 @@ from typing import List, Tuple
 from collections import namedtuple
 
 BlindScheduleElement = namedtuple('BlindScheduleElement', 'next_blind_change small_blind big_blind ante')
-Player = namedtuple('Player', 'bot_impl stack')
+Player = namedtuple('Player', 'bot_impl stack id')
 
 def play_hand(players: List[Player], blinds: List[int]):
+    state, info_state = init_game(players, blinds)
 
+    while not state.is_terminal():
+        if state.is_chance_node():
+            card_num = np.random.choice(state.legal_actions())
+            apply_chance_action(state, info_state, card_num)
+            continue
+        
+        current_idx = state.current_player()
+        observation = info_state.to_observation(current_idx, state.legal_actions())
+        action = players[current_idx].bot_impl.act(observation)
+        if not action in state.legal_actions():
+            if 0 in state.legal_actions():
+                action = 0
+            else:
+                action = 1
+        apply_player_action(state, info_state, current_idx, action)
+
+    return map(int, state.rewards())
+
+def apply_player_action(state, info_state, current_idx, action):
+    state.apply_action(action)
+    info_state.update_info_state_action(current_idx, action)
+
+def apply_chance_action(state, info_state, card_num):
+    state.apply_action(card_num)
+    info_state.update_info_state_draw(card_num)
+
+
+
+def init_game(players, blinds):
     game = pyspiel.load_game("universal_poker", {
         "betting": "nolimit",
         "bettingAbstraction": "fullgame",
@@ -22,6 +52,7 @@ def play_hand(players: List[Player], blinds: List[int]):
         "numRanks": 13,
         "firstPlayer": "3 1 1 1" if len(players) > 2 else "1 1 1 1"
     })
+
     state = game.new_initial_state()
 
     #deal private cards
@@ -30,33 +61,16 @@ def play_hand(players: List[Player], blinds: List[int]):
         continue
 
     info_state = InfoState(state.history(), [p.stack for p in players], [b for b in blinds])
+    return state,info_state
 
-    while not state.is_terminal():
-        if state.is_chance_node():
-            card_num = np.random.choice(state.legal_actions())
-            state.apply_action(card_num)
-            info_state.update_info_state_draw(card_num)
-            continue
-        
-        current_idx = state.current_player()
-        observation = info_state.to_observation(current_idx, state.legal_actions())
-        action = players[current_idx].bot_impl.act(observation)
-        if not action in state.legal_actions():
-            if 0 in state.legal_actions():
-                action = 0
-            else:
-                action = 1
-        state.apply_action(action)
-        info_state.update_info_state_action(current_idx, action)
 
-    return map(int, state.rewards())
 
 def play_tournament_table(bots, start_stack: int, blind_schedule: Tuple[BlindScheduleElement]):
 
-    active_players = [Player(bot,start_stack) for bot in bots]
+    active_players = [Player(bot,start_stack, idx) for idx, bot in enumerate(bots)]
+    defeated_players = []
     np.random.shuffle(active_players)
 
-    results = []
     hand_count = 0
     blinds_iter = iter(blind_schedule)
     current_blinds = next(blinds_iter)
@@ -64,21 +78,30 @@ def play_tournament_table(bots, start_stack: int, blind_schedule: Tuple[BlindSch
         print("big_blind cannot be bigger than start_stack")
         return []
 
+    json_data = []
+
     while len(active_players) > 1:
         print(sorted([player.bot_impl.get_name() for player in active_players]))
 
-        rewards = play_hand(active_players, get_blinds_input(current_blinds, len(active_players)))
+        json_hand_data = {
+            "hand_count": hand_count,
+            "active_players": [{player.bot_impl.get_name(), player.stack, player.id} for player in active_players],
+            "defeated_players": defeated_players
+        }
+
+        rewards, json = play_hand(active_players, get_blinds_input(current_blinds, len(active_players)))
 
         if hand_count == current_blinds.next_blind_change:
             current_blinds = next(blinds_iter)
 
-        defeated_players, active_players = update_active_players(active_players, rewards, current_blinds.big_blind)
+        newly_defeated_players, active_players = update_active_players(active_players, rewards, current_blinds.big_blind)
 
-        results = results + defeated_players
+        defeated_players = defeated_players + newly_defeated_players
         active_players = active_players[1:] + [active_players[0]]
         hand_count += 1
+        json_data.append(json_hand_data)
     
-    results = results + [active_players[0].bot_impl.get_name()]
+    results = defeated_players + [active_players[0].bot_impl.get_name()]
     results.reverse()
     return results
 
