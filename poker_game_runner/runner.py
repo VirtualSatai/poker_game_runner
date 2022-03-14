@@ -1,6 +1,7 @@
 import numpy as np
 import pyspiel
-from poker_game_runner.state import InfoState
+from poker_game_runner.bots.testBot import get_name
+from poker_game_runner.state import InfoState, card_num_to_str
 from typing import List, Tuple
 from collections import namedtuple
 
@@ -9,11 +10,15 @@ Player = namedtuple('Player', 'bot_impl stack id')
 
 def play_hand(players: List[Player], blinds: List[int]):
     state, info_state = init_game(players, blinds)
+    json_data = {
+        "player_hands": list(info_state.player_hands),
+        "actions": []
+    }
 
     while not state.is_terminal():
         if state.is_chance_node():
             card_num = np.random.choice(state.legal_actions())
-            apply_chance_action(state, info_state, card_num)
+            apply_chance_action(state, info_state, json_data, card_num)
             continue
         
         current_idx = state.current_player()
@@ -24,17 +29,19 @@ def play_hand(players: List[Player], blinds: List[int]):
                 action = 0
             else:
                 action = 1
-        apply_player_action(state, info_state, current_idx, action)
+        apply_player_action(state, info_state, json_data, current_idx, action)
 
-    return map(int, state.rewards())
+    return map(int, state.rewards()), json_data
 
-def apply_player_action(state, info_state, current_idx, action):
+def apply_player_action(state, info_state, json_data, current_idx, action):
     state.apply_action(action)
     info_state.update_info_state_action(current_idx, action)
+    json_data["actions"].append({"player": current_idx, "action": int(action)})
 
-def apply_chance_action(state, info_state, card_num):
+def apply_chance_action(state, info_state, json_data, card_num):
     state.apply_action(card_num)
     info_state.update_info_state_draw(card_num)
+    json_data["actions"].append({"player": -1, "action": card_num_to_str(card_num)})
 
 
 
@@ -61,7 +68,7 @@ def init_game(players, blinds):
         continue
 
     info_state = InfoState(state.history(), [p.stack for p in players], [b for b in blinds])
-    return state,info_state
+    return state, info_state
 
 
 
@@ -83,13 +90,15 @@ def play_tournament_table(bots, start_stack: int, blind_schedule: Tuple[BlindSch
     while len(active_players) > 1:
         print(sorted([player.bot_impl.get_name() for player in active_players]))
 
-        json_hand_data = {
+        json_hand = {
             "hand_count": hand_count,
-            "active_players": [{player.bot_impl.get_name(), player.stack, player.id} for player in active_players],
+            "active_players": [player_to_dict(player) for player in active_players],
             "defeated_players": defeated_players
         }
 
-        rewards, json = play_hand(active_players, get_blinds_input(current_blinds, len(active_players)))
+        rewards, json_hand_data = play_hand(active_players, get_blinds_input(current_blinds, len(active_players)))
+
+        json_hand["hand_data"] = json_hand_data
 
         if hand_count == current_blinds.next_blind_change:
             current_blinds = next(blinds_iter)
@@ -99,16 +108,19 @@ def play_tournament_table(bots, start_stack: int, blind_schedule: Tuple[BlindSch
         defeated_players = defeated_players + newly_defeated_players
         active_players = active_players[1:] + [active_players[0]]
         hand_count += 1
-        json_data.append(json_hand_data)
+        json_data.append(json_hand)
     
     results = defeated_players + [active_players[0].bot_impl.get_name()]
     results.reverse()
-    return results
+    return results, json_data
+
+def player_to_dict(player: Player):
+    return {"name": player.bot_impl.get_name(), "id": player.id, "stack": player.stack}
 
 def update_active_players(active_players: List[Player], rewards: List[int], big_blind: int):    
-    updated_players = [Player(player.bot_impl, int(player.stack+r)) for player,r in zip(active_players, rewards)]
+    updated_players = [Player(player.bot_impl, int(player.stack+r), player.id) for player,r in zip(active_players, rewards)]
 
-    defeated_players = [player.bot_impl.get_name() for player in updated_players if player.stack < big_blind]
+    defeated_players = [player_to_dict(player) for player in updated_players if player.stack < big_blind]
     active_players = [player for player in updated_players if player.stack >= big_blind]
     return defeated_players, active_players
 
