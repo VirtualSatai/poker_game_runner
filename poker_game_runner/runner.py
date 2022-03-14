@@ -1,6 +1,6 @@
 import numpy as np
 import pyspiel
-from poker_game_runner import state
+from poker_game_runner.state import InfoState
 from typing import List, Tuple
 from collections import namedtuple
 
@@ -29,7 +29,7 @@ def play_hand(players: List[Player], blinds: List[int]):
         state.apply_action(np.random.choice(state.legal_actions()))
         continue
 
-    info_state = state.InfoState(state.history(), [p.stack for p in players], [b for b in blinds])
+    info_state = InfoState(state.history(), [p.stack for p in players], [b for b in blinds])
 
     while not state.is_terminal():
         if state.is_chance_node():

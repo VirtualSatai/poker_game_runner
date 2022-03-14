@@ -71,7 +71,7 @@ class Observation:
         return str(ActionInfo(player_idx, action_num))
 
 class InfoState: 
-    player_hands: List[Tuple[str]]
+    player_hands: Tuple[Tuple[str]]
     board_cards: List[str]
     player_infos: List[PlayerInfo]
     history: Tuple[List[ActionInfo]]
@@ -82,7 +82,7 @@ class InfoState:
     def __init__(self, history: List[int], stacks: List[int], blinds: List[int]):
         cards1 = map(card_num_to_str, [history[i] for i in range(0,len(history),2)])
         cards2 = map(card_num_to_str, [history[i] for i in range(1,len(history),2)])
-        self.player_hands = [hand for hand in zip(cards1, cards2)]
+        self.player_hands = tuple(hand for hand in zip(cards1, cards2))
         self.player_infos = [PlayerInfo(blind, stack-blind, True) for blind, stack in zip(blinds, stacks)]
         self.board_cards = []
         self.history = ([],[],[],[])
