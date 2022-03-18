@@ -2,8 +2,9 @@ import numpy as np
 
 from poker_game_runner.state import Observation
 
-def get_name():
-    return "foldBot"
+class Bot:
+    def get_name(self):
+        return "foldBot"
 
-def act(observation: Observation):
-    return 0
+    def act(self, observation: Observation):
+        return 0
