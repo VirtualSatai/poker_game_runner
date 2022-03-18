@@ -1,12 +1,60 @@
 import numpy as np
 import pyspiel
-from poker_game_runner.bots.testBot import get_name
 from poker_game_runner.state import InfoState, card_num_to_str
 from typing import List, Tuple
 from collections import namedtuple
 
 BlindScheduleElement = namedtuple('BlindScheduleElement', 'next_blind_change small_blind big_blind ante')
 Player = namedtuple('Player', 'bot_impl stack id')
+
+def play_tournament_table(bots, start_stack: int, blind_schedule: Tuple[BlindScheduleElement]):
+    json_data = []
+    active_players = [Player(bot,start_stack, idx) for idx, bot in enumerate(bots)]
+    defeated_players = []
+    hand_count = 0
+    blinds_iter = iter(blind_schedule)
+
+    current_blinds = next(blinds_iter)
+    while len(active_players) > 1:
+        print([(player.id, player.bot_impl.get_name()) for player in active_players])
+
+        json_hand = {
+            "hand_count": hand_count,
+            "active_players": [player_to_dict(player) for player in active_players],
+            "defeated_players": defeated_players
+        }
+
+        rewards, json_hand_events = play_hand(active_players, get_blinds_input(current_blinds, len(active_players)))
+        json_hand["hand_events"] = json_hand_events
+
+        if hand_count == current_blinds.next_blind_change:
+            current_blinds = next(blinds_iter)
+
+        newly_defeated_players, active_players = update_active_players(active_players, rewards, current_blinds.big_blind)
+
+        defeated_players = defeated_players + newly_defeated_players
+        active_players = active_players[1:] + [active_players[0]]
+        hand_count += 1
+        json_data.append(json_hand)
+    
+    results = defeated_players + [player_to_dict(active_players[0])]
+    results.reverse()
+    return results, json_data
+
+def player_to_dict(player: Player, defeated = False):
+    return {"name": player.bot_impl.get_name(), "id": player.id, "stack": player.stack if not defeated else 0}
+
+def update_active_players(active_players: List[Player], rewards: List[int], big_blind: int):    
+    updated_players = [Player(player.bot_impl, int(player.stack+r), player.id) for player,r in zip(active_players, rewards)]
+
+    defeated_players = [player_to_dict(player, True) for player in updated_players if player.stack < big_blind]
+    active_players = [player for player in updated_players if player.stack >= big_blind]
+    return defeated_players, active_players
+
+def get_blinds_input(current_blinds: BlindScheduleElement, playerCount: int) -> List[int]:
+    return [current_blinds.small_blind, current_blinds.big_blind] + ([current_blinds.ante] * (playerCount-2))
+
+
 
 def play_hand(players: List[Player], blinds: List[int]):
     state, info_state, json_events = init_game(players, blinds)
@@ -18,18 +66,22 @@ def play_hand(players: List[Player], blinds: List[int]):
             continue
         
         current_idx = state.current_player()
-        observation = info_state.to_observation(current_idx, state.legal_actions())
-        action = players[current_idx].bot_impl.act(observation)
-        if not action in state.legal_actions():
-            if 0 in state.legal_actions():
-                action = 0
-            else:
-                action = 1
+        action = get_player_action(players[current_idx], state, info_state, current_idx)
         apply_player_action(state, info_state, json_events, current_idx, action)
     
     json_events = json_events + [{"type": "reward", "player": i, "reward": reward} for i, reward in enumerate(state.rewards())]
 
     return map(int, state.rewards()), json_events
+
+def get_player_action(player, state, info_state, current_idx):
+    observation = info_state.to_observation(current_idx, state.legal_actions())
+    action = player.bot_impl.act(observation)
+    if not action in state.legal_actions():
+        if 0 in state.legal_actions():
+            action = 0
+        else:
+            action = 1
+    return action
 
 def apply_player_action(state, info_state, json_events, current_idx, action):
     state.apply_action(action)
@@ -71,60 +123,3 @@ def init_game(players, blinds):
     json_events.append({"type": "action", "player": 1, "action": blinds[1]})
     json_events = json_events + [{"type": "deal", "player": int(i/2), "card": card} for i, card in enumerate(map(card_num_to_str, state.history()))]
     return state, info_state, json_events
-
-
-
-def play_tournament_table(bots, start_stack: int, blind_schedule: Tuple[BlindScheduleElement]):
-
-    active_players = [Player(bot,start_stack, idx) for idx, bot in enumerate(bots)]
-    defeated_players = []
-    np.random.shuffle(active_players)
-
-    hand_count = 0
-    blinds_iter = iter(blind_schedule)
-    current_blinds = next(blinds_iter)
-    if current_blinds.big_blind > start_stack:
-        print("big_blind cannot be bigger than start_stack")
-        return []
-
-    json_data = []
-
-    while len(active_players) > 1:
-        print([(player.id, player.bot_impl.get_name()) for player in active_players])
-
-        json_hand = {
-            "hand_count": hand_count,
-            "active_players": [player_to_dict(player) for player in active_players],
-            "defeated_players": defeated_players
-        }
-
-        rewards, json_hand_events = play_hand(active_players, get_blinds_input(current_blinds, len(active_players)))
-
-        json_hand["hand_events"] = json_hand_events
-
-        if hand_count == current_blinds.next_blind_change:
-            current_blinds = next(blinds_iter)
-
-        newly_defeated_players, active_players = update_active_players(active_players, rewards, current_blinds.big_blind)
-
-        defeated_players = defeated_players + newly_defeated_players
-        active_players = active_players[1:] + [active_players[0]]
-        hand_count += 1
-        json_data.append(json_hand)
-    
-    results = defeated_players + [player_to_dict(active_players[0])]
-    results.reverse()
-    return results, json_data
-
-def player_to_dict(player: Player, defeated = False):
-    return {"name": player.bot_impl.get_name(), "id": player.id, "stack": player.stack if not defeated else 0}
-
-def update_active_players(active_players: List[Player], rewards: List[int], big_blind: int):    
-    updated_players = [Player(player.bot_impl, int(player.stack+r), player.id) for player,r in zip(active_players, rewards)]
-
-    defeated_players = [player_to_dict(player, True) for player in updated_players if player.stack < big_blind]
-    active_players = [player for player in updated_players if player.stack >= big_blind]
-    return defeated_players, active_players
-
-def get_blinds_input(current_blinds: BlindScheduleElement, playerCount: int) -> List[int]:
-    return [current_blinds.small_blind, current_blinds.big_blind] + ([current_blinds.ante] * (playerCount-2))
