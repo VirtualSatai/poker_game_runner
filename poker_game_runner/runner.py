@@ -9,16 +9,12 @@ BlindScheduleElement = namedtuple('BlindScheduleElement', 'next_blind_change sma
 Player = namedtuple('Player', 'bot_impl stack id')
 
 def play_hand(players: List[Player], blinds: List[int]):
-    state, info_state = init_game(players, blinds)
-    json_data = {
-        "player_hands": list(info_state.player_hands),
-        "actions": []
-    }
+    state, info_state, json_events = init_game(players, blinds)
 
     while not state.is_terminal():
         if state.is_chance_node():
             card_num = np.random.choice(state.legal_actions())
-            apply_chance_action(state, info_state, json_data, card_num)
+            apply_chance_action(state, info_state, json_events, card_num)
             continue
         
         current_idx = state.current_player()
@@ -29,19 +25,21 @@ def play_hand(players: List[Player], blinds: List[int]):
                 action = 0
             else:
                 action = 1
-        apply_player_action(state, info_state, json_data, current_idx, action)
+        apply_player_action(state, info_state, json_events, current_idx, action)
+    
+    json_events = json_events + [{"type": "reward", "player": i, "reward": reward} for i, reward in enumerate(state.rewards())]
 
-    return map(int, state.rewards()), json_data
+    return map(int, state.rewards()), json_events
 
-def apply_player_action(state, info_state, json_data, current_idx, action):
+def apply_player_action(state, info_state, json_events, current_idx, action):
     state.apply_action(action)
     info_state.update_info_state_action(current_idx, action)
-    json_data["actions"].append({"player": current_idx, "action": int(action)})
+    json_events.append({"type": "action", "player": current_idx, "action": int(action)})
 
-def apply_chance_action(state, info_state, json_data, card_num):
+def apply_chance_action(state, info_state, json_events, card_num):
     state.apply_action(card_num)
     info_state.update_info_state_draw(card_num)
-    json_data["actions"].append({"player": -1, "action": card_num_to_str(card_num)})
+    json_events.append({"type": "deal", "player": -1, "action": card_num_to_str(card_num)})
 
 
 
@@ -68,7 +66,11 @@ def init_game(players, blinds):
         continue
 
     info_state = InfoState(state.history(), [p.stack for p in players], [b for b in blinds])
-    return state, info_state
+    json_events = []
+    json_events.append({"type": "action", "player": 0, "action": blinds[0]})
+    json_events.append({"type": "action", "player": 1, "action": blinds[1]})
+    json_events = json_events + [{"type": "deal", "player": int(i/2), "card": card} for i, card in enumerate(map(card_num_to_str, state.history()))]
+    return state, info_state, json_events
 
 
 
@@ -88,7 +90,7 @@ def play_tournament_table(bots, start_stack: int, blind_schedule: Tuple[BlindSch
     json_data = []
 
     while len(active_players) > 1:
-        print(sorted([player.bot_impl.get_name() for player in active_players]))
+        print([(player.id, player.bot_impl.get_name()) for player in active_players])
 
         json_hand = {
             "hand_count": hand_count,
@@ -96,9 +98,9 @@ def play_tournament_table(bots, start_stack: int, blind_schedule: Tuple[BlindSch
             "defeated_players": defeated_players
         }
 
-        rewards, json_hand_data = play_hand(active_players, get_blinds_input(current_blinds, len(active_players)))
+        rewards, json_hand_events = play_hand(active_players, get_blinds_input(current_blinds, len(active_players)))
 
-        json_hand["hand_data"] = json_hand_data
+        json_hand["hand_events"] = json_hand_events
 
         if hand_count == current_blinds.next_blind_change:
             current_blinds = next(blinds_iter)
@@ -110,17 +112,17 @@ def play_tournament_table(bots, start_stack: int, blind_schedule: Tuple[BlindSch
         hand_count += 1
         json_data.append(json_hand)
     
-    results = defeated_players + [active_players[0].bot_impl.get_name()]
+    results = defeated_players + [player_to_dict(active_players[0])]
     results.reverse()
     return results, json_data
 
-def player_to_dict(player: Player):
-    return {"name": player.bot_impl.get_name(), "id": player.id, "stack": player.stack}
+def player_to_dict(player: Player, defeated = False):
+    return {"name": player.bot_impl.get_name(), "id": player.id, "stack": player.stack if not defeated else 0}
 
 def update_active_players(active_players: List[Player], rewards: List[int], big_blind: int):    
     updated_players = [Player(player.bot_impl, int(player.stack+r), player.id) for player,r in zip(active_players, rewards)]
 
-    defeated_players = [player_to_dict(player) for player in updated_players if player.stack < big_blind]
+    defeated_players = [player_to_dict(player, True) for player in updated_players if player.stack < big_blind]
     active_players = [player for player in updated_players if player.stack >= big_blind]
     return defeated_players, active_players
 

@@ -80,9 +80,14 @@ class InfoState:
     current_round: int
 
     def __init__(self, history: List[int], stacks: List[int], blinds: List[int]):
-        cards1 = map(card_num_to_str, [history[i] for i in range(0,len(history),2)])
-        cards2 = map(card_num_to_str, [history[i] for i in range(1,len(history),2)])
-        self.player_hands = tuple(hand for hand in zip(cards1, cards2))
+        self.player_hands = tuple(
+            tuple(
+                map(card_num_to_str,
+                    sorted(history[i:i+2], reverse=True)
+                )
+            )
+            for i in range(0,len(history),2)
+        )
         self.player_infos = [PlayerInfo(blind, stack-blind, True) for blind, stack in zip(blinds, stacks)]
         self.board_cards = []
         self.history = ([],[],[],[])
