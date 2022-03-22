@@ -2,8 +2,9 @@ import numpy as np
 
 from poker_game_runner.state import Observation
 
-def get_name():    
-    return "randomBot"
+class Bot:
+    def get_name(self):    
+        return "randomBot"
 
-def act(observation: Observation):
-    return np.random.choice(observation.legal_actions)
+    def act(self, observation: Observation):
+        return np.random.choice(observation.legal_actions)
