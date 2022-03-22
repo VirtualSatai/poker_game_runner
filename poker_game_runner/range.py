@@ -39,7 +39,9 @@ class Range:
             else:
                 raise ValueError
 
-    def isHandInRange(self, handCards: Tuple[str]):
+    def isHandInRange(self, handCards: Tuple[str]) -> bool:
+        if len(handCards) != 2:
+            raise ValueError
         for card in handCards:
             if not self.__validateCard(card):
                 raise ValueError
