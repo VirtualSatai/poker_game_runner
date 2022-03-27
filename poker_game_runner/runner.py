@@ -1,3 +1,4 @@
+import multiprocessing
 import numpy as np
 import pyspiel
 from poker_game_runner.state import InfoState, card_num_to_str
@@ -7,7 +8,7 @@ from collections import namedtuple
 BlindScheduleElement = namedtuple('BlindScheduleElement', 'next_blind_change small_blind big_blind ante')
 Player = namedtuple('Player', 'bot_impl stack id')
 
-def play_tournament_table(bots, start_stack: int, blind_schedule: Tuple[BlindScheduleElement]):
+def play_tournament_table(bots, start_stack: int, blind_schedule: Tuple[BlindScheduleElement], use_timeout=True):
     json_data = []
     active_players = [Player(bot,start_stack, idx) for idx, bot in enumerate(bots)]
     defeated_players = []
@@ -24,7 +25,7 @@ def play_tournament_table(bots, start_stack: int, blind_schedule: Tuple[BlindSch
             "defeated_players": defeated_players
         }
 
-        rewards, json_hand_events = play_hand(active_players, get_blinds_input(current_blinds, len(active_players)))
+        rewards, json_hand_events = play_hand(active_players, get_blinds_input(current_blinds, len(active_players)), use_timeout)
         json_hand["hand_events"] = json_hand_events
 
         if hand_count == current_blinds.next_blind_change:
@@ -56,7 +57,7 @@ def get_blinds_input(current_blinds: BlindScheduleElement, playerCount: int) -> 
 
 
 
-def play_hand(players: List[Player], blinds: List[int]):
+def play_hand(players: List[Player], blinds: List[int], use_timeut = True):
     state, info_state, json_events = init_game(players, blinds)
 
     while not state.is_terminal():
@@ -66,22 +67,45 @@ def play_hand(players: List[Player], blinds: List[int]):
             continue
         
         current_idx = state.current_player()
-        action = get_player_action(players[current_idx], state, info_state, current_idx)
+        action = get_player_action(players[current_idx], state, info_state, current_idx, use_timeut)
         apply_player_action(state, info_state, json_events, current_idx, action)
     
     json_events = json_events + [{"type": "reward", "player": i, "reward": reward} for i, reward in enumerate(state.rewards())]
 
-    return map(int, state.rewards()), json_events
+    return list(map(int, state.rewards())), json_events
 
-def get_player_action(player, state, info_state, current_idx):
+def get_player_action(player, state, info_state, current_idx, use_timeout):
     observation = info_state.to_observation(current_idx, state.legal_actions())
-    action = player.bot_impl.act(observation)
+    try:
+        action = get_player_action_with_timeout(player, observation, 2 if use_timeout else 1000000)
+    except BaseException as e:
+        print(f"Bot: '{player.bot_impl.get_name()}' caused an exception!!! Folding on their behalf.")
+        print(e)
+        action = 0
     if not action in state.legal_actions():
+        print(f"Bot: '{player.bot_impl.get_name()}' took action '{action}' which is illigal")
         if 0 in state.legal_actions():
             action = 0
         else:
             action = 1
     return action
+
+def get_player_action_with_timeout(player, obs, timeout):
+    pipeRecv, pipeSend = multiprocessing.Pipe(False)
+    p = multiprocessing.Process(target=run_act_on_bot, args=(player.bot_impl, obs, pipeSend) )
+    p.start()
+    p.join(timeout)
+    if p.is_alive():
+        p.kill()
+    if not pipeRecv.poll():
+        pipeRecv.close()
+        print(f"Bot: '{player.bot_impl.get_name()}' took too long to return. Folding on their behalf.")
+        return 0
+    return pipeRecv.recv()
+
+def run_act_on_bot(bot, obs, pipe):
+    pipe.send(bot.act(obs))
+
 
 def apply_player_action(state, info_state, json_events, current_idx, action):
     state.apply_action(action)

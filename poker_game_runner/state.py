@@ -1,8 +1,6 @@
 from dataclasses import dataclass
-from typing import List, Sequence, Tuple
-
-RANKS = '23456789TJQKA'
-SUITS = 'cdhs'
+from typing import List, Tuple
+from poker_game_runner.utils import HandType, card_num_to_str, get_hand_type, hand_str_to_enum
 
 @dataclass(frozen=True)
 class PlayerInfo: 
@@ -34,6 +32,15 @@ class Observation:
     current_round: int
     legal_actions: Tuple[int]
 
+    def get_my_hand_type(self):
+        cards = self.my_hand + self.board_cards
+        return get_hand_type(cards)
+    
+    def get_board_hand_type(self):
+        if len(self.board_cards) == 0:
+            return HandType.HIGHCARD
+        return get_hand_type(self.board_cards)
+
     def get_player_count(self):
         return len(self.player_infos)
 
@@ -52,16 +59,16 @@ class Observation:
         return max(map(lambda p: p.spent, self.player_infos))
 
     def get_asked_amount(self):
-        return self.get_max_spent()
+        return self.get_max_spent() - self.player_infos[self.my_index]
     
     def can_raise(self):
         return any(a for a in self.legal_actions if a > 1)
     
     def get_min_raise(self):
-        return min(a for a in self.legal_actions if a > 1) if self.can_raise() else 0
+        return min(a for a in self.legal_actions if a > 1) if self.can_raise() else 1
 
     def get_max_raise(self):
-        return max(a for a in self.legal_actions if a > 1) if self.can_raise() else 0
+        return max(a for a in self.legal_actions if a > 1) if self.can_raise() else 1
 
     def action_to_str(self, action_num: int, player_idx: int = None):
         if player_idx is None:
@@ -125,11 +132,3 @@ class InfoState:
                         self.current_round,
                         tuple(legal_actions))
 
-def amount_to_call(player_infos: Sequence[PlayerInfo], player_idx: int):
-    max_spent = max(map(lambda p: p.spent, player_infos))
-    return max_spent - player_infos[player_idx].spent
-
-def card_num_to_str(card_num: int):
-    rank_num = int(card_num / 4)
-    suit_num = card_num % 4
-    return RANKS[rank_num] + SUITS[suit_num]
