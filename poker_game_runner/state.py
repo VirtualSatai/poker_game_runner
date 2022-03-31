@@ -59,7 +59,7 @@ class Observation:
         return max(map(lambda p: p.spent, self.player_infos))
 
     def get_asked_amount(self):
-        return self.get_max_spent() - self.player_infos[self.my_index]
+        return self.get_max_spent() - self.player_infos[self.my_index].spent
     
     def can_raise(self):
         return any(a for a in self.legal_actions if a > 1)
@@ -73,7 +73,7 @@ class Observation:
     def action_to_str(self, action_num: int, player_idx: int = None):
         if player_idx is None:
             player_idx = self.my_index
-        if action_num is not int or player_idx is not int:
+        if type(action_num) is not int or type(player_idx) is not int:
             return "unexpected types"
         return str(ActionInfo(player_idx, action_num))
 
