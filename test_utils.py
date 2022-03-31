@@ -94,6 +94,9 @@ class TestHandType(unittest.TestCase):
         except:
             self.assertTrue(True)
 
+    def test_no_cards(self):
+        self.assertEquals(get_hand_type([]), HandType.HIGHCARD)
+
     def test_high_card(self):
         self.assertEquals(get_hand_type(["Ah", "3d", "6s", "Jc", "Ks"]), HandType.HIGHCARD)
 
