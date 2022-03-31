@@ -58,8 +58,11 @@ class Observation:
     def get_max_spent(self):
         return max(map(lambda p: p.spent, self.player_infos))
 
-    def get_asked_amount(self):
+    def get_call_size(self):
         return self.get_max_spent() - self.player_infos[self.my_index].spent
+
+    def get_pot_size(self):
+        return sum(map(lambda p: p.spent, self.player_infos))
     
     def can_raise(self):
         return any(a for a in self.legal_actions if a > 1)
@@ -69,6 +72,22 @@ class Observation:
 
     def get_max_raise(self):
         return max(a for a in self.legal_actions if a > 1) if self.can_raise() else 1
+
+    def get_fraction_pot_raise(self, frac):
+        if not self.can_raise():
+            return 1
+        else:
+            pot = self.get_pot_size()
+            call = self.get_call_size()
+            pot_with_my_call = pot + call
+            raise_amount = call + int(pot_with_my_call * frac)
+            if raise_amount < self.get_min_raise():
+                return self.get_min_raise()
+            elif raise_amount > self.get_max_raise():
+                return self.get_max_raise()
+            else:
+                return raise_amount
+
 
     def action_to_str(self, action_num: int, player_idx: int = None):
         if player_idx is None:
