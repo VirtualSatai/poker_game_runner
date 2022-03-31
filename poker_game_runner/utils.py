@@ -15,13 +15,14 @@ class HandType(IntEnum):
     TWOPAIR = 7
     PAIR = 8
     HIGHCARD = 9
+    ERROR = 10
 
 class Range:
     def __init__(self, rangeStr) -> None:
         self.range = eval7.HandRange(rangeStr)
 
     def is_hand_in_range(self, handCards: Tuple[str]) -> bool:
-        evalHand = tuple(map(eval7.Card, handCards))
+        evalHand = tuple(map(eval7.Card, sorted(handCards, key=lambda x: RANKS.index(x[0]), reverse=True)))
         rangeHands = [hand[0] for hand in self.range.hands]
         return evalHand in rangeHands
 
@@ -35,22 +36,24 @@ def card_num_to_str(card_num: int):
     suit_num = card_num % 4
     return RANKS[rank_num] + SUITS[suit_num]
 
-def hand_str_to_enum(handStr: str):
-    if handStr.lower == "high card":
+def hand_str_to_enum(hand_str: str):
+    hand_str_lower = hand_str.lower()
+    if hand_str_lower == "high card":
         return HandType(9)
-    elif handStr.lower == "pair":
+    elif hand_str_lower == "pair":
         return HandType(8)
-    elif handStr.lower == "two pair":
+    elif hand_str_lower == "two pair":
         return HandType(7)
-    elif handStr.lower == "three of a kind":
+    elif hand_str_lower == "trips":
         return HandType(6)
-    elif handStr.lower == "straight":
+    elif hand_str_lower == "straight":
         return HandType(5)
-    elif handStr.lower == "flush":
+    elif hand_str_lower == "flush":
         return HandType(4)
-    elif handStr.lower == "full house":
+    elif hand_str_lower == "full house":
         return HandType(3)
-    elif handStr.lower == "four of a kind":
+    elif hand_str_lower == "quads":
         return HandType(2)
-    elif handStr.lower == "straight flush":
+    elif hand_str_lower == "straight flush":
         return HandType(1)
+    return HandType(10)
