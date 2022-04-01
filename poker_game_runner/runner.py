@@ -1,4 +1,5 @@
 import multiprocessing
+from time import time
 import numpy as np
 import pyspiel
 from poker_game_runner.state import InfoState, card_num_to_str
@@ -17,7 +18,7 @@ def play_tournament_table(bots, start_stack: int, blind_schedule: Tuple[BlindSch
 
     current_blinds = next(blinds_iter)
     while len(active_players) > 1:
-        print([(player.id, player.bot_impl.get_name()) for player in active_players])
+        print(hand_count)
 
         json_hand = {
             "hand_count": hand_count,
@@ -91,6 +92,14 @@ def get_player_action(player, state, info_state, current_idx, use_timeout):
     return action
 
 def get_player_action_with_timeout(player, obs, timeout):
+    start = time()
+    res = player.bot_impl.act(obs)
+    end = time()
+    delta = end - start
+    if delta > timeout:
+        print(f"Bot: '{player.bot_impl.get_name()}' took too long to return. Folding on their behalf.")
+        return 0
+    return res
     pipeRecv, pipeSend = multiprocessing.Pipe(False)
     p = multiprocessing.Process(target=run_act_on_bot, args=(player.bot_impl, obs, pipeSend) )
     p.start()
