@@ -1,15 +1,11 @@
-from poker_game_runner.runner import play_tournament_table, BlindScheduleElement, Player, play_hand
-from poker_game_runner.bots import randombot, callBot, testBot
-import json
+from poker_game_runner.runner import play_tournament_table, BlindScheduleElement
+from poker_game_runner.bots import randombot, bovlebot
 
-test_bot_1 = testBot.Bot([15])
-test_bot_2 = testBot.Bot([0])
-stacks = [1000, 1000]
-blinds = [5, 10]
 
-bots = [test_bot_1, test_bot_2]
-players = [Player(bot,stacks[idx], idx) for idx, bot in enumerate(bots)]
+bots = [bovlebot, bovlebot, randombot, randombot, bovlebot, bovlebot, randombot, randombot, bovlebot, bovlebot]
+bot_instances = [b.Bot() for b in bots]
 
-rewards, json_hand_events = play_hand(players, blinds)
-
-print(list(rewards))
+res, details = play_tournament_table(bot_instances, 1000, tuple(BlindScheduleElement(i*20, i*5,i*10,0) for i in range(1,100)) +
+                                                           (BlindScheduleElement(-1, 500,1000,0), ), use_timeout=False)
+print(res)
+print(len(details))
