@@ -6,16 +6,16 @@ RANKS = '23456789TJQKA'
 SUITS = 'cdhs'
 
 class HandType(IntEnum):
-    STRAIGHTFLUSH = 1
-    FOUROFAKIND = 2
-    FULLHOUSE = 3
-    FLUSH = 4
+    STRAIGHTFLUSH = 9
+    FOUROFAKIND = 8
+    FULLHOUSE = 7
+    FLUSH = 6
     STRAIGHT = 5
-    THREEOFAKIND = 6
-    TWOPAIR = 7
-    PAIR = 8
-    HIGHCARD = 9
-    ERROR = 10
+    THREEOFAKIND = 4
+    TWOPAIR = 3
+    PAIR = 2
+    HIGHCARD = 1
+    ERROR = 0
 
 """ class Range:
     def __init__(self, rangeStr) -> None:
@@ -100,21 +100,21 @@ def card_num_to_str(card_num: int):
 def hand_str_to_enum(hand_str: str):
     hand_str_lower = hand_str.lower()
     if hand_str_lower == "high card":
-        return HandType(9)
+        return HandType(1)
     elif hand_str_lower == "pair":
-        return HandType(8)
+        return HandType(2)
     elif hand_str_lower == "two pair":
-        return HandType(7)
+        return HandType(3)
     elif hand_str_lower == "trips":
-        return HandType(6)
+        return HandType(4)
     elif hand_str_lower == "straight":
         return HandType(5)
     elif hand_str_lower == "flush":
-        return HandType(4)
+        return HandType(6)
     elif hand_str_lower == "full house":
-        return HandType(3)
+        return HandType(7)
     elif hand_str_lower == "quads":
-        return HandType(2)
+        return HandType(8)
     elif hand_str_lower == "straight flush":
-        return HandType(1)
-    return HandType(10)
+        return HandType(9)
+    return HandType(0)
