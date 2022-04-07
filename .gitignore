@@ -1,6 +1,6 @@
 #vscode
 .vscode
-
+output.json
 #profiler
 profile.svg
 

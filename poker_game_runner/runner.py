@@ -3,6 +3,7 @@ from time import time
 import numpy as np
 import pyspiel
 from poker_game_runner.state import InfoState, card_num_to_str
+from poker_game_runner.utils import get_hand_type
 from typing import List, Tuple
 from collections import namedtuple
 
@@ -31,7 +32,7 @@ def play_tournament_table(bots, start_stack: int, blind_schedule: Tuple[BlindSch
 
         if hand_count == current_blinds.next_blind_change:
             current_blinds = next(blinds_iter)
-
+            
         newly_defeated_players, active_players = update_active_players(active_players, rewards, current_blinds.big_blind)
 
         defeated_players = defeated_players + newly_defeated_players
@@ -71,7 +72,12 @@ def play_hand(players: List[Player], blinds: List[int], use_timeut = True):
         action = get_player_action(players[current_idx], state, info_state, current_idx, use_timeut)
         apply_player_action(state, info_state, json_events, current_idx, action)
     
-    json_events = json_events + [{"type": "reward", "player": i, "reward": reward} for i, reward in enumerate(state.rewards())]
+    json_events = json_events + [{
+        "type": "reward", 
+        "player": i, 
+        "reward": reward, 
+        "handtype": get_hand_type(list(info_state.board_cards) + list(info_state.player_hands[i])).name
+    } for i, reward in enumerate(state.rewards())]
 
     return list(map(int, state.rewards())), json_events
 
