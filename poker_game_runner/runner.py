@@ -75,7 +75,7 @@ def play_hand(players: List[Player], blinds: List[int], use_timeut = True):
 
     return list(map(int, state.rewards())), json_events
 
-def get_player_action(player, state, info_state, current_idx, use_timeout):
+def get_player_action(player, state, info_state: InfoState, current_idx: int, use_timeout: bool):
     observation = info_state.to_observation(current_idx, state.legal_actions())
     try:
         action = get_player_action_with_timeout(player, observation, 2 if use_timeout else 1000000)
@@ -83,9 +83,9 @@ def get_player_action(player, state, info_state, current_idx, use_timeout):
         print(f"Bot: '{player.bot_impl.get_name()}' caused an exception!!! Folding on their behalf.")
         print(e)
         action = 0
-    if not action in state.legal_actions():
+    if not (action in observation.legal_actions and action in state.legal_actions()):
         print(f"Bot: '{player.bot_impl.get_name()}' took action '{action}' which is illigal")
-        if 0 in state.legal_actions():
+        if 0 in state.legal_actions() and 0 in observation.legal_actions:
             action = 0
         else:
             action = 1
