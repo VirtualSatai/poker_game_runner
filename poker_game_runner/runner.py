@@ -10,11 +10,13 @@ from collections import namedtuple
 BlindScheduleElement = namedtuple('BlindScheduleElement', 'next_blind_change small_blind big_blind ante')
 Player = namedtuple('Player', 'bot_impl stack id')
 
-def play_tournament_table(bots, start_stack: int, blind_schedule: Tuple[BlindScheduleElement], use_timeout=True):
+def play_tournament_table(bots, start_stack: int, use_timeout=True):
+    
     json_data = []
-    active_players = [Player(bot,start_stack, idx) for idx, bot in enumerate(bots)]
     defeated_players = []
     hand_count = 0
+    active_players = [Player(bot,start_stack, idx) for idx, bot in enumerate(bots)]
+    blind_schedule = get_blind_schedule()
     blinds_iter = iter(blind_schedule)
 
     current_blinds = next(blinds_iter)
@@ -162,3 +164,25 @@ def init_game(players, blinds):
     json_events.append({"type": "action", "player": 1, "action": blinds[1]})
     json_events = json_events + [{"type": "deal", "player": int(i/2), "card": card} for i, card in enumerate(map(card_num_to_str, state.history()))]
     return state, info_state, json_events
+
+def get_blind_schedule():
+    return (BlindScheduleElement(20, 10,20,0),     
+            BlindScheduleElement(40, 15,30,0),
+            BlindScheduleElement(60, 20,40,0),
+            BlindScheduleElement(80, 25,50,0),
+            BlindScheduleElement(100, 35,70,0),
+            BlindScheduleElement(110, 45,90,0),
+            BlindScheduleElement(120, 60,120,0),
+            BlindScheduleElement(130, 75,150,0),
+            BlindScheduleElement(140, 100,200,0),
+            BlindScheduleElement(150, 125,250,0),
+            BlindScheduleElement(160, 150,300,0),
+            BlindScheduleElement(170, 200,400,0),
+            BlindScheduleElement(180, 250,500,0),
+            BlindScheduleElement(190, 350,700,0),
+            BlindScheduleElement(200, 450,900,0),
+            BlindScheduleElement(210, 600,1200,0),
+            BlindScheduleElement(220, 750,1500,0),
+            BlindScheduleElement(240, 1000,2000,0),
+            BlindScheduleElement(250, 1250,2500,0),
+            BlindScheduleElement(-1, 2000,4000,0))

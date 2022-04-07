@@ -29,9 +29,9 @@ class Bot:
       return obs.get_min_raise() #attempt to steal the pot
     
     my_hand_type = obs.get_my_hand_type()
-    if my_hand_type > HandType.PAIR and my_hand_type > obs.get_board_hand_type():
+    if my_hand_type > HandType.PAIR and my_hand_type.value > obs.get_board_hand_type().value + 1:
       return obs.get_max_raise()
-    elif my_hand_type == HandType.PAIR and my_hand_type > obs.get_board_hand_type():
+    elif my_hand_type == HandType.PAIR and my_hand_type.value > obs.get_board_hand_type().value + 1:
       return obs.get_min_raise()
     else:
       return 0
