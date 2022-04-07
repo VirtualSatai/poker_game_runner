@@ -32,6 +32,9 @@ class Observation:
     current_round: int
     legal_actions: Tuple[int]
 
+    def get_my_player_info(self):
+        return self.player_infos[self.my_index]
+
     def get_my_hand_type(self):
         cards = self.my_hand + self.board_cards
         return get_hand_type(cards)
@@ -81,12 +84,13 @@ class Observation:
             call = self.get_call_size()
             pot_with_my_call = pot + call
             raise_amount = call + int(pot_with_my_call * frac)
-            if raise_amount < self.get_min_raise():
+            raise_to = self.get_my_player_info().spent + raise_amount
+            if raise_to < self.get_min_raise():
                 return self.get_min_raise()
-            elif raise_amount > self.get_max_raise():
+            elif raise_to > self.get_max_raise():
                 return self.get_max_raise()
             else:
-                return raise_amount
+                return raise_to
 
 
     def action_to_str(self, action_num: int, player_idx: int = None):
@@ -140,7 +144,14 @@ class InfoState:
         self.board_cards.append(cards_str)
         self.current_round = 0 if len(self.board_cards) < 3 else len(self.board_cards)-2
             
-    def to_observation(self, player_idx: int, legal_actions: List[int]):
+    def to_observation(self, player_idx: int, openspiel_legal_actions: List[int]):
+
+        raise_actions = [action for action in self.history[self.current_round] if action.action > 1]
+        if len(raise_actions) >= 5:
+            legal_actions = [0,1] if 0 in openspiel_legal_actions else [1]
+        else:
+            legal_actions = openspiel_legal_actions
+
         return Observation(self.player_hands[player_idx], 
                         player_idx, 
                         tuple(self.board_cards), 
