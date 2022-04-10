@@ -74,8 +74,8 @@ class testObservation(unittest.TestCase):
         self.assertEquals(obs.get_call_size(), 5)
         self.assertEquals(obs.get_pot_size(), 15)
         self.assertEquals(obs.get_fraction_pot_raise(0.5), 20)
-        self.assertEquals(obs.get_fraction_pot_raise(1), 25)
-        self.assertEquals(obs.get_fraction_pot_raise(2), 45)
+        self.assertEquals(obs.get_fraction_pot_raise(1), 30)
+        self.assertEquals(obs.get_fraction_pot_raise(2), 50)
 
         self.assertEquals(obs.get_player_count(),2)
         self.assertEquals(len(obs.get_active_players()), 2)
@@ -95,9 +95,9 @@ class testObservation(unittest.TestCase):
         self.assertEquals(obs.get_max_spent(), 50)
         self.assertEquals(obs.get_call_size(), 40)
         self.assertEquals(obs.get_pot_size(), 60)
-        self.assertEquals(obs.get_fraction_pot_raise(0.5), 90)
-        self.assertEquals(obs.get_fraction_pot_raise(1), 140)
-        self.assertEquals(obs.get_fraction_pot_raise(2), 240)
+        self.assertEquals(obs.get_fraction_pot_raise(0.5), 100)
+        self.assertEquals(obs.get_fraction_pot_raise(1), 150)
+        self.assertEquals(obs.get_fraction_pot_raise(2), 250)
         assertActionInfo(obs.get_actions_this_round()[0], 0, 1)
         assertActionInfo(obs.get_actions_this_round()[1], 1,50)
 
@@ -148,9 +148,9 @@ class testObservation(unittest.TestCase):
         self.assertEquals(obs.get_max_spent(), 50)
         self.assertEquals(obs.get_call_size(), 45)
         self.assertEquals(obs.get_pot_size(), 65)
-        self.assertEquals(obs.get_fraction_pot_raise(0.5), 100) # 45 + 110*0.5
-        self.assertEquals(obs.get_fraction_pot_raise(1), 155) # 45 + 110*1
-        self.assertEquals(obs.get_fraction_pot_raise(2), 265) # 45 + 110*2
+        self.assertEquals(obs.get_fraction_pot_raise(0.5), 105) # 50 + 110*0.5
+        self.assertEquals(obs.get_fraction_pot_raise(1), 160) # 50 + 110*1
+        self.assertEquals(obs.get_fraction_pot_raise(2), 270) # 50 + 110*2
         assertActionInfo(obs.get_actions_this_round()[0], 2, 50)
 
         self.infoState3way.update_info_state_action(0, 0)
