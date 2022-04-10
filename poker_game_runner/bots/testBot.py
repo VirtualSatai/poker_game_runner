@@ -19,6 +19,6 @@ class Bot:
             if action == "throw":
                 return self.actions[10000] #out of range exception
             if action == "slow":
-                sleep(10)
+                sleep(2)
                 return obs.get_min_raise()
             return action

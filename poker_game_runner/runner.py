@@ -67,7 +67,7 @@ def get_blinds_input(current_blinds: BlindScheduleElement, playerCount: int) -> 
 
 
 
-def play_hand(players: List[Player], blinds: List[int], use_timeut, console_output):
+def play_hand(players: List[Player], blinds: List[int], use_timeut, console_output=False):
     state, info_state, json_events = init_game(players, blinds, console_output)
     if console_output:
         print()
@@ -119,7 +119,7 @@ def play_hand(players: List[Player], blinds: List[int], use_timeut, console_outp
 def get_player_action(player, state, info_state: InfoState, current_idx: int, use_timeout: bool):
     observation = info_state.to_observation(current_idx, state.legal_actions())
     try:
-        action = get_player_action_with_timeout(player, observation, 2 if use_timeout else 1000000)
+        action = get_player_action_with_timeout(player, observation, 1 if use_timeout else 1000000)
     except BaseException as e:
         print(f"Bot: '{player.bot_impl.get_name()}' caused an exception!!! Folding on their behalf.")
         print(e)

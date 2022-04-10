@@ -59,10 +59,10 @@ class TestPlayerActions(unittest.TestCase):
         self.assertListEqual(rewards, [10,-10])
 
     def test_slow_bot(self):
-        bot1 = testBot.Bot([25, 0]) 
+        bot1 = testBot.Bot([40, 0]) 
         bot2 = testBot.Bot(["slow", 0]) #too slow -> fold
-        res, details = play_tournament_table([bot1, bot2], 30, (BlindScheduleElement(-1, 5, 10, 0),))
-        self.assertEqual(len(details), 3)
+        res, details = play_tournament_table([bot1, bot2], 70)
+        self.assertEqual(len(details), 4)
 
 def run_hand(bots, stacks = [1000, 1000], blinds = [5, 10]):
     players = [Player(bot,stacks[idx], idx) for idx, bot in enumerate(bots)]
