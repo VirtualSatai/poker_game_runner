@@ -4,12 +4,34 @@ from poker_game_runner.utils import HandType, card_num_to_str, get_hand_type, ha
 
 @dataclass(frozen=True)
 class PlayerInfo: 
+    """
+        A class to represent the state of a player
+
+        Attributes
+        -----------
+        spent: int
+            the amount the player has spent in this game
+        stack: int
+            the amount the player has left
+        active: bool
+            true if the player has not folded in this game
+    """
     spent: int
     stack: int
     active: bool
 
 @dataclass(frozen=True)
 class ActionInfo: 
+    """
+        A class to represent the action of a player
+
+        Attributes
+        -----------
+        player: int
+            the index of the player taking this action
+        action: int
+            the action of the player
+    """
     player: int
     action: int
     def __str__(self) -> str:
@@ -22,6 +44,30 @@ class ActionInfo:
 
 @dataclass(frozen=True)
 class Observation: 
+    """
+    A class representing the state of the game
+
+    Attributes
+    ----------
+    my_hand: Tuple[str]
+        The cards in the current players hand
+    my_index: int
+        The index of the current player out of all players in the game
+    board_cards: Tuple[str]
+        The community cards on the board
+    player_infos: Tuple[PlayerInfo]
+        Current state of all players in the game
+    history: Tuple[Tuple[ActionInfo]]
+        The history of all actions taken so far grouped by game round
+    small_blind: int
+        The current small blind
+    big_blind: int
+        The current big blind
+    current_round: int
+        The current game round
+    legal_actions: Tuple[int]
+        all legal actions
+    """
     my_hand: Tuple[str]
     my_index: int
     board_cards: Tuple[str]
@@ -33,50 +79,79 @@ class Observation:
     legal_actions: Tuple[int]
 
     def get_my_player_info(self):
+        """ return the PlayerInfo of the current player  """
         return self.player_infos[self.my_index]
 
     def get_my_hand_type(self):
+        """ return the hand type of the current player """
         cards = self.my_hand + self.board_cards
         return get_hand_type(cards)
     
     def get_board_hand_type(self):
+        """ return the hand type of the board cards """
         if len(self.board_cards) == 0:
             return HandType.HIGHCARD
         return get_hand_type(self.board_cards)
 
     def get_player_count(self):
+        """ return the number of players in the tournament """
         return len(self.player_infos)
 
     def get_active_players(self):
+        """ return the number of players that are active in the hand (have not folded) """
         return tuple(p for p in self.player_infos if p.active)
     
     def get_actions_this_round(self):
+        """ return the ActionInfo's from the current round """
         return self.get_actions_in_round(self.current_round)
 
     def get_actions_in_round(self, round_num: int):
+        """ return the ActionInfo's from the given round
+
+            Parameters
+            ---------
+            round_num: int
+                the round to fetch actions from
+        """
         if round_num > 3 or round_num < 0:
             return tuple()
         return self.history[round_num]
 
     def get_max_spent(self):
+        """ return the max spent from any player this game """
         return max(map(lambda p: p.spent, self.player_infos))
 
     def get_call_size(self):
+        """ return the amount to call """
         return self.get_max_spent() - self.player_infos[self.my_index].spent
 
     def get_pot_size(self):
+        """ return the amount in the pot """
         return sum(map(lambda p: p.spent, self.player_infos))
     
     def can_raise(self):
+        """ return true if the current player can raise """
         return any(a for a in self.legal_actions if a > 1)
     
     def get_min_raise(self):
+        """ return the minimum possible raise.
+            will return 1 (call) if the current player cannot raise"""
         return min(a for a in self.legal_actions if a > 1) if self.can_raise() else 1
 
     def get_max_raise(self):
+        """ return the maximum possible raise (all in).
+            will return 1 (call) if the current player cannot raise"""
         return max(a for a in self.legal_actions if a > 1) if self.can_raise() else 1
 
     def get_fraction_pot_raise(self, frac):
+        """ return the raise size in relation to the pot
+
+            Parameters
+            ----------
+            frac: float
+                The size of the pot to raise
+
+        """
         if not self.can_raise():
             return 1
         else:

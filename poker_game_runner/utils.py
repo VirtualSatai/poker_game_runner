@@ -17,18 +17,21 @@ class HandType(IntEnum):
     HIGHCARD = 1
     ERROR = 0
 
-""" class Range:
-    def __init__(self, rangeStr) -> None:
-        self.range = eval7.HandRange(rangeStr)
-
-    def is_hand_in_range(self, handCards: Tuple[str]) -> bool:
-        evalHand = tuple(map(eval7.Card, sorted(handCards, key=lambda x: RANKS.index(x[0]), reverse=True)))
-        rangeHands = [hand[0] for hand in self.range.hands]
-        return evalHand in rangeHands """
-
 class Range:
+    """
+        A class representing a range of hands
+    """
 
     def __init__(self, rangeStr: str) -> None:
+        """
+            Constructs the range given the range string
+
+            Parameters
+            ----------
+            rangeStr: str
+                the range string representing a range of hands
+                the range string can be generated at 'https://www.pokerhandrange.com/'
+        """
         self.rangeList = rangeStr.split(", ")
         self.expandedRangeList = []
         for rangeElem in self.rangeList:
@@ -63,6 +66,16 @@ class Range:
                 raise ValueError
 
     def is_hand_in_range(self, handCards: Tuple[str]):
+        """
+            returns true if the given hand is in this range
+
+            Parameters
+            ----------
+            handCards: Tuple[str]
+                The hand cards to check for
+        """
+        if len(handCards) != 2:
+            raise ValueError
         for card in handCards:
             if not self.__validateCard(card):
                 raise ValueError
