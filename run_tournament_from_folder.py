@@ -1,3 +1,6 @@
+from operator import mod
+import sys
+import inspect
 import json
 from poker_game_runner.runner import play_tournament_table, BlindScheduleElement, Player, play_hand
 from poker_game_runner.state import Observation
@@ -17,6 +20,7 @@ def find_bots():
     bots = []
     files = glob.glob(join(PATH_TO_BOTS, "**/", "*.py"))
     is_bot_regex = re.compile(r"(\W*)def(\W*)get_name\(self\)")
+    class_name_regex = re.compile(r"class[\W+](\w+):")
     for f in files:
         with open(f, "r") as file:
             match = [is_bot_regex.match(
@@ -24,14 +28,15 @@ def find_bots():
             if len(match) == 0:
                 # This file is not a bot
                 continue
-        # f.split("/")[-2]
         try:
             spec = importlib.util.spec_from_file_location(__name__, f)
             foo = importlib.util.module_from_spec(spec)
             spec.loader.exec_module(foo)
-            name = foo.get_name()
-            print(f"Found bot: {name}")
-            bots.append(foo)
+            clazz = next(c for c in inspect.getmembers(
+                foo) if "class '__main__." in str(c))
+            instance = clazz[-1]()
+            print(f"Found bot: {instance.get_name()}")
+            bots.append(instance)
         except Exception as ex:
             print(f"Failed to import from file: {f}")
             print(ex)
