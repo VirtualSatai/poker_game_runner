@@ -84,7 +84,7 @@ def play_hand(players: List[Player], blinds: List[int], use_timeut, console_outp
             continue
 
         current_idx = state.current_player()
-        action = get_player_action(players[current_idx], state, info_state, current_idx, use_timeut)
+        action = get_player_action(players[current_idx], state, info_state, current_idx, use_timeut, console_output)
         apply_player_action(state, info_state, json_events, current_idx, action)
         if console_output:
             name = players[current_idx].bot_impl.get_name()
@@ -116,16 +116,18 @@ def play_hand(players: List[Player], blinds: List[int], use_timeut, console_outp
 
     return list(map(int, state.rewards())), json_events
 
-def get_player_action(player, state, info_state: InfoState, current_idx: int, use_timeout: bool):
+def get_player_action(player, state, info_state: InfoState, current_idx: int, use_timeout: bool, console_output: bool):
     observation = info_state.to_observation(current_idx, state.legal_actions())
     try:
         action = get_player_action_with_timeout(player, observation, 1 if use_timeout else 1000000)
     except BaseException as e:
-        print(f"Bot: '{player.bot_impl.get_name()}' caused an exception!!! Folding on their behalf.")
-        print(e)
+        if console_output:
+            print(f"Bot: '{player.bot_impl.get_name()}' caused an exception!!! Folding on their behalf.")
+            print(e)
         action = 0
     if not (action in observation.legal_actions and action in state.legal_actions()):
-        print(f"Bot: '{player.bot_impl.get_name()}' took action '{action}' which is illigal")
+        if console_output:
+            print(f"Bot: '{player.bot_impl.get_name()}' took action '{action}' which is illigal")
         if 0 in state.legal_actions() and 0 in observation.legal_actions:
             action = 0
         else:

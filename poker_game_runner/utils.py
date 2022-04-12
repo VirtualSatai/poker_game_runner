@@ -6,6 +6,8 @@ RANKS = '23456789TJQKA'
 SUITS = 'cdhs'
 
 class HandType(IntEnum):
+    """ enum of poker hand types with valus 
+    """
     STRAIGHTFLUSH = 9
     FOUROFAKIND = 8
     FULLHOUSE = 7
@@ -20,18 +22,12 @@ class HandType(IntEnum):
 class Range:
     """
         A class representing a range of hands
+
+        :type rangeStr: str
+        :param rangeStr: The range string representing a range of hands. The range string can be generated at 'https://www.pokerhandrange.com/'
     """
 
     def __init__(self, rangeStr: str) -> None:
-        """
-            Constructs the range given the range string
-
-            Parameters
-            ----------
-            rangeStr: str
-                the range string representing a range of hands
-                the range string can be generated at 'https://www.pokerhandrange.com/'
-        """
         self.rangeList = rangeStr.split(", ")
         self.expandedRangeList = []
         for rangeElem in self.rangeList:
@@ -67,12 +63,11 @@ class Range:
 
     def is_hand_in_range(self, handCards: Tuple[str]):
         """
-            returns true if the given hand is in this range
+            :return: true if the given hand is in this range
+            :rtype: bool
 
-            Parameters
-            ----------
-            handCards: Tuple[str]
-                The hand cards to check for
+            :type handCards: Tuple[str]
+            :param handCards: The hand cards to check for
         """
         if len(handCards) != 2:
             raise ValueError
