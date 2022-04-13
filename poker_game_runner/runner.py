@@ -1,4 +1,3 @@
-import multiprocessing
 from time import time
 import numpy as np
 import pyspiel
@@ -6,12 +5,13 @@ from poker_game_runner.state import InfoState, card_num_to_str
 from poker_game_runner.utils import get_hand_type
 from typing import List, Tuple
 from collections import namedtuple
+import eval7
 
 BlindScheduleElement = namedtuple('BlindScheduleElement', 'next_blind_change small_blind big_blind ante')
 Player = namedtuple('Player', 'bot_impl stack id')
 ROUNDS = ['Preflop', 'Flop', 'Turn', 'River']
 
-def play_tournament_table(bots, start_stack: int, use_timeout=True, console_output = False):
+def play_tournament_table(bots, start_stack: int, use_timeout=True, console_output = False, calc_win_chance=False):
     
     json_data = []
     defeated_players = []
@@ -35,7 +35,7 @@ def play_tournament_table(bots, start_stack: int, use_timeout=True, console_outp
             print("Players in hand: ")
             [print(player.bot_impl.get_name() + " stack: " + str(player.stack)) for player in active_players]
 
-        rewards, json_hand_events = play_hand(active_players, get_blinds_input(current_blinds, len(active_players)), use_timeout, console_output)
+        rewards, json_hand_events = play_hand(active_players, get_blinds_input(current_blinds, len(active_players)), use_timeout, console_output, calc_win_chance)
         json_hand["hand_events"] = json_hand_events
 
         if hand_count == current_blinds.next_blind_change:
@@ -67,20 +67,25 @@ def get_blinds_input(current_blinds: BlindScheduleElement, playerCount: int) -> 
 
 
 
-def play_hand(players: List[Player], blinds: List[int], use_timeut, console_output=False):
+def play_hand(players: List[Player], blinds: List[int], use_timeut, console_output=False, calc_win_chance=False):
     state, info_state, json_events = init_game(players, blinds, console_output)
     if console_output:
         print()
-        print("-- stage: " + ROUNDS[info_state.current_round] + " --")
+        print("-- betting round: " + ROUNDS[info_state.current_round] + " --")
 
     while not state.is_terminal():
         if state.is_chance_node():
-            card_num = np.random.choice(state.legal_actions())
+            deck_cards = state.legal_actions()
+            card_num = np.random.choice(deck_cards)
             apply_chance_action(state, info_state, json_events, card_num)
-            if console_output and len(info_state.board_cards) >= 3:
-                print()
-                print("-- stage: " + ROUNDS[info_state.current_round] + " --")
-                print("board: " + str(info_state.board_cards))
+            if len(info_state.board_cards) >= 3:
+                deck_cards.remove(card_num)
+                if console_output:
+                    print()
+                    print("-- betting round: " + ROUNDS[info_state.current_round] + " --")
+                    print("board: " + str(info_state.board_cards))
+                if calc_win_chance:
+                    add_win_chance_to_json(info_state, json_events, deck_cards)
             continue
 
         current_idx = state.current_player()
@@ -158,7 +163,38 @@ def apply_chance_action(state, info_state, json_events, card_num):
     info_state.update_info_state_draw(card_num)
     json_events.append({"type": "deal", "player": -1, "action": card_num_to_str(card_num)})
 
+def add_win_chance_to_json(info_state: InfoState, json_events, deck_cards):
+    active_idxs = {i: 0 for i, player in enumerate(info_state.player_infos) if player.active}
+    sample_count = 1000
+    if len(info_state.board_cards) == 5:
+        evals = []
+        for i in active_idxs:
+            hand = list(info_state.player_hands[i])
+            evalCards = list(map(eval7.Card, info_state.board_cards + hand))
+            eval = eval7.evaluate(evalCards)
+            evals.append((eval, i))
+        active_idxs[max(evals)[1]] += 1
+    else:
+        for i in range(sample_count):
+            board_cards = list(info_state.board_cards)
+            deck = list(deck_cards)
+            while len(board_cards) < 5:
+                card_num = np.random.choice(deck)
+                board_cards.append(card_num_to_str(card_num))
+                deck.remove(card_num)
 
+            evals = []
+            for i in active_idxs:
+                hand = list(info_state.player_hands[i])
+                evalCards = list(map(eval7.Card, board_cards + hand))
+                eval = eval7.evaluate(evalCards)
+                evals.append((eval, i))
+            active_idxs[max(evals)[1]] += 1
+    
+    for i in active_idxs:
+        wins = active_idxs[i]
+        win_chance = wins / sample_count
+        json_events.append({"type": "win_chance", "player": i, "win_chance": win_chance})
 
 def init_game(players: List[Player], blinds, console_output):
     game = pyspiel.load_game("universal_poker", {
