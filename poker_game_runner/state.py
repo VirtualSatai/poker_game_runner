@@ -225,13 +225,14 @@ class InfoState:
         else:
             legal_actions = openspiel_legal_actions
 
-        return Observation(self.player_hands[player_idx], 
+        return Observation(
+                        self.small_blind,
+                        self.big_blind,
+                        self.player_hands[player_idx], 
                         player_idx, 
                         tuple(self.board_cards), 
                         tuple(self.player_infos), 
                         tuple(tuple(h) for h in self.history),
-                        self.small_blind,
-                        self.big_blind,
                         self.current_round,
                         tuple(legal_actions))
 
