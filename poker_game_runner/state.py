@@ -134,13 +134,21 @@ class Observation:
         """ :return: the minimum possible raise. Will return 1 (call) if the current player cannot raise
             :rtype: int
         """
-        return min(a for a in self.legal_actions if a > 1) if self.can_raise() else 1
+        # Old method: return min(a for a in self.legal_actions if a > 1) if self.can_raise() else 1
+        if self.can_raise() and any(val for val in self.legal_actions if val > 1):
+            return next(val for val in self.legal_actions if val > 1)
+        
+        return 1
 
     def get_max_raise(self):
         """ :return: the maximum possible raise (all in). Will return 1 (call) if the current player cannot raise
             :rtype: int
         """
-        return max(a for a in self.legal_actions if a > 1) if self.can_raise() else 1
+        # Old method: return max(a for a in self.legal_actions if a > 1) if self.can_raise() else 1
+        if self.can_raise():
+            return self.legal_actions[-1]
+        
+        return 1
 
     def get_fraction_pot_raise(self, frac):
         """ :return: the raise size in relation to the pot
@@ -224,6 +232,8 @@ class InfoState:
             legal_actions = [0,1] if 0 in openspiel_legal_actions else [1]
         else:
             legal_actions = openspiel_legal_actions
+
+        assert legal_actions == sorted(legal_actions), "legal_actions from openspiel is always sorted"
 
         return Observation(
                         self.small_blind,
