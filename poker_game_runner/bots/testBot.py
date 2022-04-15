@@ -1,8 +1,8 @@
 from time import sleep
-import numpy as np
 from typing import List
 
 from poker_game_runner.state import Observation
+
 
 class Bot:
 

@@ -9,7 +9,7 @@ setup(
     author_email='frederik@live.dk',
     license='mit',
     packages=['poker_game_runner', 'poker_game_runner/bots'],
-    install_requires=[ 'open-spiel==1.0.2', 'numpy>=1.19.0', 'eval7==0.1.9'],
+    install_requires=[ 'open-spiel==1.0.2', 'eval7==0.1.9'],
 
     classifiers=[
         'Development Status :: 3 - Alpha',

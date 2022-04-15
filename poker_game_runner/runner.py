@@ -1,5 +1,5 @@
 from time import time
-import numpy as np
+from random import choice
 import pyspiel
 from poker_game_runner.state import InfoState, card_num_to_str
 from poker_game_runner.utils import get_hand_type
@@ -76,7 +76,7 @@ def play_hand(players: List[Player], blinds: List[int], use_timeut, console_outp
     while not state.is_terminal():
         if state.is_chance_node():
             deck_cards = state.legal_actions()
-            card_num = np.random.choice(deck_cards)
+            card_num = choice(deck_cards)
             apply_chance_action(state, info_state, json_events, card_num)
             if len(info_state.board_cards) >= 3:
                 deck_cards.remove(card_num)
@@ -179,7 +179,7 @@ def add_win_chance_to_json(info_state: InfoState, json_events, deck_cards):
             board_cards = list(info_state.board_cards)
             deck = list(deck_cards)
             while len(board_cards) < 5:
-                card_num = np.random.choice(deck)
+                card_num = choice(deck)
                 board_cards.append(card_num_to_str(card_num))
                 deck.remove(card_num)
 
@@ -215,7 +215,7 @@ def init_game(players: List[Player], blinds, console_output):
 
     #deal private cards
     while state.is_chance_node():
-        state.apply_action(np.random.choice(state.legal_actions()))
+        state.apply_action(choice(state.legal_actions()))
         continue
 
     info_state = InfoState(state.history(), [p.stack for p in players], [b for b in blinds])
