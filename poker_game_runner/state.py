@@ -135,7 +135,7 @@ class Observation:
             :rtype: int
         """
         # Old method: return min(a for a in self.legal_actions if a > 1) if self.can_raise() else 1
-        if self.can_raise() and any(val for val in self.legal_actions if val > 1):
+        if self.can_raise():
             return next(val for val in self.legal_actions if val > 1)
         
         return 1
