@@ -95,34 +95,34 @@ class TestHandType(unittest.TestCase):
             self.assertTrue(True)
 
     def test_no_cards(self):
-        self.assertEquals(get_hand_type([]), HandType.HIGHCARD)
+        self.assertEqual(get_hand_type([]), HandType.HIGHCARD)
 
     def test_high_card(self):
-        self.assertEquals(get_hand_type(["Ah", "3d", "6s", "Jc", "Ks"]), HandType.HIGHCARD)
+        self.assertEqual(get_hand_type(["Ah", "3d", "6s", "Jc", "Ks"]), HandType.HIGHCARD)
 
     def test_pair(self):
-        self.assertEquals(get_hand_type(["Ah", "Ad", "6s", "Jc", "Ks"]), HandType.PAIR)
+        self.assertEqual(get_hand_type(["Ah", "Ad", "6s", "Jc", "Ks"]), HandType.PAIR)
 
     def test_two_pair(self):
-        self.assertEquals(get_hand_type(["Ah", "Ad", "6s", "6c", "Ks"]), HandType.TWOPAIR)
+        self.assertEqual(get_hand_type(["Ah", "Ad", "6s", "6c", "Ks"]), HandType.TWOPAIR)
 
     def test_three_of_a_kind(self):
-        self.assertEquals(get_hand_type(["Ah", "Ad", "As", "6c", "Ks"]), HandType.THREEOFAKIND)
+        self.assertEqual(get_hand_type(["Ah", "Ad", "As", "6c", "Ks"]), HandType.THREEOFAKIND)
     
     def test_straight_low(self):
-        self.assertEquals(get_hand_type(["Ah", "2d", "3s", "4c", "5s"]), HandType.STRAIGHT)
+        self.assertEqual(get_hand_type(["Ah", "2d", "3s", "4c", "5s"]), HandType.STRAIGHT)
 
     def test_straight_high(self):
-        self.assertEquals(get_hand_type(["Ah", "Kd", "Qs", "Jc", "Ts"]), HandType.STRAIGHT)
+        self.assertEqual(get_hand_type(["Ah", "Kd", "Qs", "Jc", "Ts"]), HandType.STRAIGHT)
 
     def test_flush(self):
-        self.assertEquals(get_hand_type(["Ah", "Kh", "Qh", "Jh", "9h"]), HandType.FLUSH)
+        self.assertEqual(get_hand_type(["Ah", "Kh", "Qh", "Jh", "9h"]), HandType.FLUSH)
 
     def test_full_house(self):
-        self.assertEquals(get_hand_type(["Ah", "Ad", "As", "Tc", "Ts"]), HandType.FULLHOUSE)
+        self.assertEqual(get_hand_type(["Ah", "Ad", "As", "Tc", "Ts"]), HandType.FULLHOUSE)
 
     def test_four_of_a_kind(self):
-        self.assertEquals(get_hand_type(["Ah", "Ad", "As", "Ac", "Ts"]), HandType.FOUROFAKIND)
+        self.assertEqual(get_hand_type(["Ah", "Ad", "As", "Ac", "Ts"]), HandType.FOUROFAKIND)
 
     def test_straight_flush(self):
-        self.assertEquals(get_hand_type(["Ah", "Kh", "Qh", "Jh", "Th"]), HandType.STRAIGHTFLUSH)
+        self.assertEqual(get_hand_type(["Ah", "Kh", "Qh", "Jh", "Th"]), HandType.STRAIGHTFLUSH)
