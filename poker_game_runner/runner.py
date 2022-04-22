@@ -78,8 +78,9 @@ def play_hand(players: List[Player], blinds: List[int], use_timeut, console_outp
             deck_cards = state.legal_actions()
             card_num = choice(deck_cards)
             apply_chance_action(state, info_state, json_events, card_num)
+            deck_cards.remove(card_num)
             if len(info_state.board_cards) >= 3:
-                deck_cards.remove(card_num)
+                
                 if console_output:
                     print()
                     print("-- betting round: " + ROUNDS[info_state.current_round] + " --")
@@ -165,36 +166,50 @@ def apply_chance_action(state, info_state, json_events, card_num):
 
 def add_win_chance_to_json(info_state: InfoState, json_events, deck_cards):
     active_idxs = {i: 0 for i, player in enumerate(info_state.player_infos) if player.active}
-    sample_count = 1000
-    if len(info_state.board_cards) == 5:
-        evals = []
-        for i in active_idxs:
-            hand = list(info_state.player_hands[i])
-            evalCards = list(map(eval7.Card, info_state.board_cards + hand))
-            eval = eval7.evaluate(evalCards)
-            evals.append((eval, i))
-        active_idxs[max(evals)[1]] += 1
-    else:
-        for i in range(sample_count):
-            board_cards = list(info_state.board_cards)
-            deck = list(deck_cards)
-            while len(board_cards) < 5:
-                card_num = choice(deck)
-                board_cards.append(card_num_to_str(card_num))
-                deck.remove(card_num)
 
-            evals = []
-            for i in active_idxs:
-                hand = list(info_state.player_hands[i])
-                evalCards = list(map(eval7.Card, board_cards + hand))
-                eval = eval7.evaluate(evalCards)
-                evals.append((eval, i))
-            active_idxs[max(evals)[1]] += 1
-    
+    sample_count = 0
+    if len(info_state.board_cards) == 5:
+        sample_count += 1
+        winner_idx = get_winner_index(info_state, active_idxs, info_state.board_cards)
+        if not winner_idx == -1:
+            active_idxs[winner_idx] += 1
+    elif len(info_state.board_cards) == 4:
+        for i in range(len(deck_cards)):
+            sample_count += 1
+            board_cards = list(info_state.board_cards)
+            board_cards.append(card_num_to_str(deck_cards[i]))
+            winner_idx = get_winner_index(info_state, active_idxs, board_cards)
+            if not winner_idx == -1:
+                active_idxs[winner_idx] += 1
+    elif len(info_state.board_cards) == 3:
+        for i in range(len(deck_cards)-1):
+            for j in range(i+1, len(deck_cards)):
+                sample_count += 1
+                board_cards = list(info_state.board_cards)
+                board_cards.append(card_num_to_str(deck_cards[i]))
+                board_cards.append(card_num_to_str(deck_cards[j]))
+                winner_idx = get_winner_index(info_state, active_idxs, board_cards)
+                if not winner_idx == -1:
+                    active_idxs[winner_idx] += 1
+
     for i in active_idxs:
         wins = active_idxs[i]
         win_chance = wins / sample_count
         json_events.append({"type": "win_chance", "player": i, "win_chance": win_chance})
+
+def get_winner_index(info_state, active_idxs, board_cards):
+    evals = {}
+    for i in active_idxs:
+        hand = list(info_state.player_hands[i])
+        evalCards = list(map(eval7.Card, board_cards + hand))
+        eval = eval7.evaluate(evalCards)
+        evals[i] = eval #.append((eval, i))
+    max_val = max(evals.values())
+    winnerCount = list(evals.values()).count(max_val)
+    if (winnerCount) > 1:
+        return -1
+    return max(evals, key=evals.get)
+
 
 def init_game(players: List[Player], blinds, console_output):
     game = pyspiel.load_game("universal_poker", {

@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='poker_game_runner',
-    version='0.1.10',    
+    version='0.1.15',    
     description='open_spiel poker tournament runner',
     url='https://github.com/bovle/poker_game_runner.git',
     author='Frederik Børsting',
