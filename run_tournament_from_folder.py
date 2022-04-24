@@ -13,7 +13,7 @@ import importlib
 import re
 import importlib.util
 
-PATH_TO_BOTS = "/mnt/c/Git/poker_game_visualizer/poker-tournament-server/bots/20220409-102136"
+PATH_TO_BOTS = "/mnt/c/dev/poker_game_visualizer/poker-tournament-server/bots/20220424-201029"
 
 
 def find_bots():
@@ -22,12 +22,14 @@ def find_bots():
     is_bot_regex = re.compile(r"(\W*)def(\W*)get_name\(self\)")
     class_name_regex = re.compile(r"class[\W+](\w+):")
     for f in files:
-        with open(f, "r") as file:
-            match = [is_bot_regex.match(
-                l) for l in file.readlines() if is_bot_regex.match(l)]
-            if len(match) == 0:
-                # This file is not a bot
-                continue
+        # with open(f, "r") as file:
+        #     match = [is_bot_regex.match(
+        #         l) for l in file.readlines() if is_bot_regex.match(l)]
+        #     if len(match) == 0:
+        #         # This file is not a bot
+        #         continue
+        if not f.endswith("_master.py"):
+            continue
         try:
             spec = importlib.util.spec_from_file_location(__name__, f)
             foo = importlib.util.module_from_spec(spec)
@@ -54,6 +56,14 @@ def schedule_tournament_and_run(bots):
     print(jsondata)
 
 
+def partition_bots(bots):
+    # TODO: This.
+    # Idea: Add column to bots.csv in poker_game_visualizer, use it here to partition.
+    return [bots]
+
+
 if __name__ == '__main__':
     bots = find_bots()
-    schedule_tournament_and_run(bots)
+    tables_of_bots = partition_bots(bots)
+    for table in tables_of_bots:
+        schedule_tournament_and_run(table)
