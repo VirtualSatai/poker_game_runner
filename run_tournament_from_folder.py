@@ -1,4 +1,6 @@
+from collections import defaultdict
 from operator import mod
+import os
 import sys
 import inspect
 import json
@@ -13,12 +15,14 @@ import importlib
 import re
 import importlib.util
 
-PATH_TO_BOTS = "/mnt/c/dev/poker_game_visualizer/poker-tournament-server/bots/20220424-201029"
+PATH_TO_BOTS = "/mnt/c/dev/poker_game_visualizer/poker-tournament-server/bots/20220424-225444"
+OUTPUT_LOCATION = "out"
+TIMESTAMP = f'{datetime.now().strftime("%Y%m%d-%H%M%S")}'
 
 
-def find_bots():
-    bots = []
-    files = glob.glob(join(PATH_TO_BOTS, "**/", "*.py"))
+def find_bots(subfolder=""):
+    bots = defaultdict(lambda: list())
+    files = glob.glob(join(PATH_TO_BOTS + subfolder, "**/**", "*.py"))
     is_bot_regex = re.compile(r"(\W*)def(\W*)get_name\(self\)")
     class_name_regex = re.compile(r"class[\W+](\w+):")
     for f in files:
@@ -37,8 +41,9 @@ def find_bots():
             clazz = next(c for c in inspect.getmembers(
                 foo) if "class '__main__." in str(c))
             instance = clazz[-1]()
-            print(f"Found bot: {instance.get_name()}")
-            bots.append(instance)
+            table = f.split("/")[-3]
+            print(f"Found bot: {instance.get_name()} for table {table}")
+            bots[table].append(instance)
         except Exception as ex:
             print(f"Failed to import from file: {f}")
             print(ex)
@@ -46,24 +51,21 @@ def find_bots():
     return bots
 
 
-def schedule_tournament_and_run(bots):
+def schedule_tournament_and_run(bots, table_index):
     results, jsondata = play_tournament_table(
         bots,
         1000,
         (BlindScheduleElement(10, 5, 10, 0), BlindScheduleElement(-1, 10, 20, 0))
     )
     print(results)
-    print(jsondata)
-
-
-def partition_bots(bots):
-    # TODO: This.
-    # Idea: Add column to bots.csv in poker_game_visualizer, use it here to partition.
-    return [bots]
+    # print(jsondata)
+    if not os.path.exists(OUTPUT_LOCATION):
+        os.mkdir(OUTPUT_LOCATION)
+    with open(f"{OUTPUT_LOCATION}/run-{TIMESTAMP}-{table_index}.json", "w+") as outfile:
+        outfile.write(json.dumps(jsondata))
 
 
 if __name__ == '__main__':
     bots = find_bots()
-    tables_of_bots = partition_bots(bots)
-    for table in tables_of_bots:
-        schedule_tournament_and_run(table)
+    for table_number, table_bots in bots.items():
+        schedule_tournament_and_run(table_bots, table_number)
