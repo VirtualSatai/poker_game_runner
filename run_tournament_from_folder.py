@@ -15,7 +15,7 @@ import importlib
 import re
 import importlib.util
 
-PATH_TO_BOTS = "/mnt/c/Git/poker_game_visualizer/poker-tournament-server/bots/20220425-124816"
+PATH_TO_BOTS = "/mnt/c/Git/poker_game_visualizer/poker-tournament-server/bots/20220425-132620"
 OUTPUT_LOCATION = "out"
 TIMESTAMP = f'{datetime.now().strftime("%Y%m%d-%H%M%S")}'
 
@@ -34,6 +34,7 @@ def find_bots(subfolder=""):
         #         continue
         if not f.endswith("_master.py"):
             continue
+        # TODO: Check if there is already another bot from this folder.
         try:
             spec = importlib.util.spec_from_file_location(__name__, f)
             foo = importlib.util.module_from_spec(spec)
