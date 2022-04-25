@@ -15,7 +15,7 @@ import importlib
 import re
 import importlib.util
 
-PATH_TO_BOTS = "/mnt/c/dev/poker_game_visualizer/poker-tournament-server/bots/20220424-225444"
+PATH_TO_BOTS = "/mnt/c/Git/poker_game_visualizer/poker-tournament-server/bots/20220425-124816"
 OUTPUT_LOCATION = "out"
 TIMESTAMP = f'{datetime.now().strftime("%Y%m%d-%H%M%S")}'
 
@@ -61,8 +61,13 @@ def schedule_tournament_and_run(bots, table_index):
     # print(jsondata)
     if not os.path.exists(OUTPUT_LOCATION):
         os.mkdir(OUTPUT_LOCATION)
-    with open(f"{OUTPUT_LOCATION}/run-{TIMESTAMP}-{table_index}.json", "w+") as outfile:
+    with open(filename(table_index), "w+") as outfile:
         outfile.write(json.dumps(jsondata))
+        print(f"Wrote output to file: {filename(table_index)}")
+
+
+def filename(table_index):
+    return f"{OUTPUT_LOCATION}/run-{TIMESTAMP}-{table_index}.json"
 
 
 if __name__ == '__main__':
