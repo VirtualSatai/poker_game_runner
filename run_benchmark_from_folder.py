@@ -14,8 +14,9 @@ from time import sleep
 import importlib
 import re
 import importlib.util
+import run_tournament_from_folder
 
-PATH_TO_BOTS = "/mnt/c/Git/poker_game_visualizer/poker-tournament-server/bots/final"
+PATH_TO_BOTS = run_tournament_from_folder.PATH_TO_BOTS
 OUTPUT_LOCATION = "out"
 TIMESTAMP = f'{datetime.now().strftime("%Y%m%d-%H%M%S")}'
 
@@ -51,14 +52,24 @@ def find_bots(subfolder=""):
 
     return bots
 
+def run_benchmark(bots, run_count):
+    # bot_instances = [b.Bot() for b in bots]
+    data = [{'name': b.get_name(), 'wins': 0} for b in bots]
+    for i in range(run_count):
+        res, _ = play_tournament_table(bots, 1000)
+        data[res[0]['id']]['wins'] += 1
+        print(chr(27) + "[2J")
+        print("--- " + str(i+1) + "/" + str(run_count) + " ---")
+        [print(d) for d in data]
+    return data
+
 
 def schedule_tournament_and_run(bots, table_index):
-    results, jsondata = play_tournament_table(
+    jsondata = run_benchmark(
         bots,
-        1000,
-        calc_win_chance=True,
+        1000
     )
-    print(results)
+    print(jsondata)
     # print(jsondata)
     if not os.path.exists(OUTPUT_LOCATION):
         os.mkdir(OUTPUT_LOCATION)
