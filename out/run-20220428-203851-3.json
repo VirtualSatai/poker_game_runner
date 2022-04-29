@@ -1,0 +1,5252 @@
+[
+    {
+        "hand_count": 0,
+        "active_players": [
+            {
+                "name": "AntonJorg",
+                "id": 0,
+                "stack": 1000
+            },
+            {
+                "name": "Kovacs",
+                "id": 1,
+                "stack": 1000
+            },
+            {
+                "name": "i failed to XSS",
+                "id": 2,
+                "stack": 1000
+            },
+            {
+                "name": "bedre_bot",
+                "id": 3,
+                "stack": 1000
+            },
+            {
+                "name": "Enthusiast",
+                "id": 4,
+                "stack": 1000
+            },
+            {
+                "name": "supermegapokerbot",
+                "id": 5,
+                "stack": 1000
+            },
+            {
+                "name": "SimonTheDevMachine",
+                "id": 6,
+                "stack": 1000
+            }
+        ],
+        "defeated_players": [],
+        "hand_events": [
+            {
+                "type": "action",
+                "player": 0,
+                "action": 10
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 20
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "9c"
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "4s"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "Jc"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "6s"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "Jh"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "Kc"
+            },
+            {
+                "type": "deal",
+                "player": 3,
+                "card": "Ad"
+            },
+            {
+                "type": "deal",
+                "player": 3,
+                "card": "8h"
+            },
+            {
+                "type": "deal",
+                "player": 4,
+                "card": "4d"
+            },
+            {
+                "type": "deal",
+                "player": 4,
+                "card": "7h"
+            },
+            {
+                "type": "deal",
+                "player": 5,
+                "card": "4h"
+            },
+            {
+                "type": "deal",
+                "player": 5,
+                "card": "9h"
+            },
+            {
+                "type": "deal",
+                "player": 6,
+                "card": "3h"
+            },
+            {
+                "type": "deal",
+                "player": 6,
+                "card": "6h"
+            },
+            {
+                "type": "action",
+                "player": 2,
+                "action": 70
+            },
+            {
+                "type": "action",
+                "player": 3,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 4,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 5,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 6,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 0,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 0
+            },
+            {
+                "type": "reward",
+                "player": 0,
+                "reward": -10.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 1,
+                "reward": -20.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 2,
+                "reward": 30.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 3,
+                "reward": 0.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 4,
+                "reward": 0.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 5,
+                "reward": 0.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 6,
+                "reward": 0.0,
+                "handtype": "HIGHCARD"
+            }
+        ]
+    },
+    {
+        "hand_count": 1,
+        "active_players": [
+            {
+                "name": "Kovacs",
+                "id": 1,
+                "stack": 980
+            },
+            {
+                "name": "i failed to XSS",
+                "id": 2,
+                "stack": 1030
+            },
+            {
+                "name": "bedre_bot",
+                "id": 3,
+                "stack": 1000
+            },
+            {
+                "name": "Enthusiast",
+                "id": 4,
+                "stack": 1000
+            },
+            {
+                "name": "supermegapokerbot",
+                "id": 5,
+                "stack": 1000
+            },
+            {
+                "name": "SimonTheDevMachine",
+                "id": 6,
+                "stack": 1000
+            },
+            {
+                "name": "AntonJorg",
+                "id": 0,
+                "stack": 990
+            }
+        ],
+        "defeated_players": [],
+        "hand_events": [
+            {
+                "type": "action",
+                "player": 0,
+                "action": 10
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 20
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "2s"
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "6d"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "3c"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "9s"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "Td"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "9c"
+            },
+            {
+                "type": "deal",
+                "player": 3,
+                "card": "Tc"
+            },
+            {
+                "type": "deal",
+                "player": 3,
+                "card": "6s"
+            },
+            {
+                "type": "deal",
+                "player": 4,
+                "card": "4h"
+            },
+            {
+                "type": "deal",
+                "player": 4,
+                "card": "4c"
+            },
+            {
+                "type": "deal",
+                "player": 5,
+                "card": "6c"
+            },
+            {
+                "type": "deal",
+                "player": 5,
+                "card": "Js"
+            },
+            {
+                "type": "deal",
+                "player": 6,
+                "card": "Qc"
+            },
+            {
+                "type": "deal",
+                "player": 6,
+                "card": "9d"
+            },
+            {
+                "type": "action",
+                "player": 2,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 3,
+                "action": 40
+            },
+            {
+                "type": "action",
+                "player": 4,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 5,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 6,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 0,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 0
+            },
+            {
+                "type": "reward",
+                "player": 0,
+                "reward": -10.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 1,
+                "reward": -20.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 2,
+                "reward": 0.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 3,
+                "reward": 30.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 4,
+                "reward": 0.0,
+                "handtype": "PAIR"
+            },
+            {
+                "type": "reward",
+                "player": 5,
+                "reward": 0.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 6,
+                "reward": 0.0,
+                "handtype": "HIGHCARD"
+            }
+        ]
+    },
+    {
+        "hand_count": 2,
+        "active_players": [
+            {
+                "name": "i failed to XSS",
+                "id": 2,
+                "stack": 1010
+            },
+            {
+                "name": "bedre_bot",
+                "id": 3,
+                "stack": 1000
+            },
+            {
+                "name": "Enthusiast",
+                "id": 4,
+                "stack": 1030
+            },
+            {
+                "name": "supermegapokerbot",
+                "id": 5,
+                "stack": 1000
+            },
+            {
+                "name": "SimonTheDevMachine",
+                "id": 6,
+                "stack": 1000
+            },
+            {
+                "name": "AntonJorg",
+                "id": 0,
+                "stack": 990
+            },
+            {
+                "name": "Kovacs",
+                "id": 1,
+                "stack": 970
+            }
+        ],
+        "defeated_players": [],
+        "hand_events": [
+            {
+                "type": "action",
+                "player": 0,
+                "action": 10
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 20
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "5c"
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "7d"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "Ad"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "Ks"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "5d"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "3s"
+            },
+            {
+                "type": "deal",
+                "player": 3,
+                "card": "6s"
+            },
+            {
+                "type": "deal",
+                "player": 3,
+                "card": "6d"
+            },
+            {
+                "type": "deal",
+                "player": 4,
+                "card": "8h"
+            },
+            {
+                "type": "deal",
+                "player": 4,
+                "card": "Ac"
+            },
+            {
+                "type": "deal",
+                "player": 5,
+                "card": "9c"
+            },
+            {
+                "type": "deal",
+                "player": 5,
+                "card": "9d"
+            },
+            {
+                "type": "deal",
+                "player": 6,
+                "card": "2d"
+            },
+            {
+                "type": "deal",
+                "player": 6,
+                "card": "Qd"
+            },
+            {
+                "type": "action",
+                "player": 2,
+                "action": 40
+            },
+            {
+                "type": "action",
+                "player": 3,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 4,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 5,
+                "action": 150
+            },
+            {
+                "type": "action",
+                "player": 6,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 0,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 500
+            },
+            {
+                "type": "action",
+                "player": 2,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 5,
+                "action": 990
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 1
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "Kh"
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "3c"
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "Th"
+            },
+            {
+                "type": "win_chance",
+                "player": 1,
+                "win_chance": 0.8873949579831932
+            },
+            {
+                "type": "win_chance",
+                "player": 5,
+                "win_chance": 0.11260504201680673
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "Ts"
+            },
+            {
+                "type": "win_chance",
+                "player": 1,
+                "win_chance": 0.9411764705882353
+            },
+            {
+                "type": "win_chance",
+                "player": 5,
+                "win_chance": 0.058823529411764705
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "3d"
+            },
+            {
+                "type": "win_chance",
+                "player": 1,
+                "win_chance": 1.0
+            },
+            {
+                "type": "win_chance",
+                "player": 5,
+                "win_chance": 0.0
+            },
+            {
+                "type": "reward",
+                "player": 0,
+                "reward": -10.0,
+                "handtype": "TWOPAIR"
+            },
+            {
+                "type": "reward",
+                "player": 1,
+                "reward": 1040.0,
+                "handtype": "TWOPAIR"
+            },
+            {
+                "type": "reward",
+                "player": 2,
+                "reward": -40.0,
+                "handtype": "FULLHOUSE"
+            },
+            {
+                "type": "reward",
+                "player": 3,
+                "reward": 0.0,
+                "handtype": "TWOPAIR"
+            },
+            {
+                "type": "reward",
+                "player": 4,
+                "reward": 0.0,
+                "handtype": "TWOPAIR"
+            },
+            {
+                "type": "reward",
+                "player": 5,
+                "reward": -990.0,
+                "handtype": "TWOPAIR"
+            },
+            {
+                "type": "reward",
+                "player": 6,
+                "reward": 0.0,
+                "handtype": "TWOPAIR"
+            }
+        ]
+    },
+    {
+        "hand_count": 3,
+        "active_players": [
+            {
+                "name": "bedre_bot",
+                "id": 3,
+                "stack": 2040
+            },
+            {
+                "name": "Enthusiast",
+                "id": 4,
+                "stack": 990
+            },
+            {
+                "name": "supermegapokerbot",
+                "id": 5,
+                "stack": 1000
+            },
+            {
+                "name": "SimonTheDevMachine",
+                "id": 6,
+                "stack": 1000
+            },
+            {
+                "name": "Kovacs",
+                "id": 1,
+                "stack": 970
+            },
+            {
+                "name": "i failed to XSS",
+                "id": 2,
+                "stack": 1000
+            }
+        ],
+        "defeated_players": [
+            {
+                "name": "AntonJorg",
+                "id": 0,
+                "stack": 0
+            }
+        ],
+        "hand_events": [
+            {
+                "type": "action",
+                "player": 0,
+                "action": 10
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 20
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "Jh"
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "Ad"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "6c"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "9h"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "4h"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "4d"
+            },
+            {
+                "type": "deal",
+                "player": 3,
+                "card": "2c"
+            },
+            {
+                "type": "deal",
+                "player": 3,
+                "card": "4c"
+            },
+            {
+                "type": "deal",
+                "player": 4,
+                "card": "9c"
+            },
+            {
+                "type": "deal",
+                "player": 4,
+                "card": "8h"
+            },
+            {
+                "type": "deal",
+                "player": 5,
+                "card": "5h"
+            },
+            {
+                "type": "deal",
+                "player": 5,
+                "card": "Jd"
+            },
+            {
+                "type": "action",
+                "player": 2,
+                "action": 40
+            },
+            {
+                "type": "action",
+                "player": 3,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 4,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 5,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 0,
+                "action": 140
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 2,
+                "action": 0
+            },
+            {
+                "type": "reward",
+                "player": 0,
+                "reward": 60.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 1,
+                "reward": -20.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 2,
+                "reward": -40.0,
+                "handtype": "PAIR"
+            },
+            {
+                "type": "reward",
+                "player": 3,
+                "reward": 0.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 4,
+                "reward": 0.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 5,
+                "reward": 0.0,
+                "handtype": "HIGHCARD"
+            }
+        ]
+    },
+    {
+        "hand_count": 4,
+        "active_players": [
+            {
+                "name": "Enthusiast",
+                "id": 4,
+                "stack": 970
+            },
+            {
+                "name": "supermegapokerbot",
+                "id": 5,
+                "stack": 960
+            },
+            {
+                "name": "SimonTheDevMachine",
+                "id": 6,
+                "stack": 1000
+            },
+            {
+                "name": "Kovacs",
+                "id": 1,
+                "stack": 970
+            },
+            {
+                "name": "i failed to XSS",
+                "id": 2,
+                "stack": 1000
+            },
+            {
+                "name": "bedre_bot",
+                "id": 3,
+                "stack": 2100
+            }
+        ],
+        "defeated_players": [
+            {
+                "name": "AntonJorg",
+                "id": 0,
+                "stack": 0
+            }
+        ],
+        "hand_events": [
+            {
+                "type": "action",
+                "player": 0,
+                "action": 10
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 20
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "2s"
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "Kh"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "6s"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "Jd"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "As"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "4d"
+            },
+            {
+                "type": "deal",
+                "player": 3,
+                "card": "8h"
+            },
+            {
+                "type": "deal",
+                "player": 3,
+                "card": "7d"
+            },
+            {
+                "type": "deal",
+                "player": 4,
+                "card": "7h"
+            },
+            {
+                "type": "deal",
+                "player": 4,
+                "card": "Jh"
+            },
+            {
+                "type": "deal",
+                "player": 5,
+                "card": "Ad"
+            },
+            {
+                "type": "deal",
+                "player": 5,
+                "card": "9s"
+            },
+            {
+                "type": "action",
+                "player": 2,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 3,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 4,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 5,
+                "action": 70
+            },
+            {
+                "type": "action",
+                "player": 0,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 0
+            },
+            {
+                "type": "reward",
+                "player": 0,
+                "reward": -10.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 1,
+                "reward": -20.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 2,
+                "reward": 0.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 3,
+                "reward": 0.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 4,
+                "reward": 0.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 5,
+                "reward": 30.0,
+                "handtype": "HIGHCARD"
+            }
+        ]
+    },
+    {
+        "hand_count": 5,
+        "active_players": [
+            {
+                "name": "supermegapokerbot",
+                "id": 5,
+                "stack": 940
+            },
+            {
+                "name": "SimonTheDevMachine",
+                "id": 6,
+                "stack": 1000
+            },
+            {
+                "name": "Kovacs",
+                "id": 1,
+                "stack": 970
+            },
+            {
+                "name": "i failed to XSS",
+                "id": 2,
+                "stack": 1000
+            },
+            {
+                "name": "bedre_bot",
+                "id": 3,
+                "stack": 2130
+            },
+            {
+                "name": "Enthusiast",
+                "id": 4,
+                "stack": 960
+            }
+        ],
+        "defeated_players": [
+            {
+                "name": "AntonJorg",
+                "id": 0,
+                "stack": 0
+            }
+        ],
+        "hand_events": [
+            {
+                "type": "action",
+                "player": 0,
+                "action": 10
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 20
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "8s"
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "Kd"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "Qs"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "Qd"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "2h"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "Kc"
+            },
+            {
+                "type": "deal",
+                "player": 3,
+                "card": "6s"
+            },
+            {
+                "type": "deal",
+                "player": 3,
+                "card": "4h"
+            },
+            {
+                "type": "deal",
+                "player": 4,
+                "card": "7c"
+            },
+            {
+                "type": "deal",
+                "player": 4,
+                "card": "Ks"
+            },
+            {
+                "type": "deal",
+                "player": 5,
+                "card": "8h"
+            },
+            {
+                "type": "deal",
+                "player": 5,
+                "card": "Jh"
+            },
+            {
+                "type": "action",
+                "player": 2,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 3,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 4,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 5,
+                "action": 40
+            },
+            {
+                "type": "action",
+                "player": 0,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 0
+            },
+            {
+                "type": "reward",
+                "player": 0,
+                "reward": -10.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 1,
+                "reward": -20.0,
+                "handtype": "PAIR"
+            },
+            {
+                "type": "reward",
+                "player": 2,
+                "reward": 0.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 3,
+                "reward": 0.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 4,
+                "reward": 0.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 5,
+                "reward": 30.0,
+                "handtype": "HIGHCARD"
+            }
+        ]
+    },
+    {
+        "hand_count": 6,
+        "active_players": [
+            {
+                "name": "SimonTheDevMachine",
+                "id": 6,
+                "stack": 980
+            },
+            {
+                "name": "Kovacs",
+                "id": 1,
+                "stack": 970
+            },
+            {
+                "name": "i failed to XSS",
+                "id": 2,
+                "stack": 1000
+            },
+            {
+                "name": "bedre_bot",
+                "id": 3,
+                "stack": 2130
+            },
+            {
+                "name": "Enthusiast",
+                "id": 4,
+                "stack": 990
+            },
+            {
+                "name": "supermegapokerbot",
+                "id": 5,
+                "stack": 930
+            }
+        ],
+        "defeated_players": [
+            {
+                "name": "AntonJorg",
+                "id": 0,
+                "stack": 0
+            }
+        ],
+        "hand_events": [
+            {
+                "type": "action",
+                "player": 0,
+                "action": 10
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 20
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "2c"
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "5c"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "4c"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "3d"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "Qs"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "6d"
+            },
+            {
+                "type": "deal",
+                "player": 3,
+                "card": "2h"
+            },
+            {
+                "type": "deal",
+                "player": 3,
+                "card": "8h"
+            },
+            {
+                "type": "deal",
+                "player": 4,
+                "card": "7s"
+            },
+            {
+                "type": "deal",
+                "player": 4,
+                "card": "Js"
+            },
+            {
+                "type": "deal",
+                "player": 5,
+                "card": "7h"
+            },
+            {
+                "type": "deal",
+                "player": 5,
+                "card": "Kc"
+            },
+            {
+                "type": "action",
+                "player": 2,
+                "action": 70
+            },
+            {
+                "type": "action",
+                "player": 3,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 4,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 5,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 0,
+                "action": 230
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 2,
+                "action": 0
+            },
+            {
+                "type": "reward",
+                "player": 0,
+                "reward": 90.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 1,
+                "reward": -20.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 2,
+                "reward": -70.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 3,
+                "reward": 0.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 4,
+                "reward": 0.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 5,
+                "reward": 0.0,
+                "handtype": "HIGHCARD"
+            }
+        ]
+    },
+    {
+        "hand_count": 7,
+        "active_players": [
+            {
+                "name": "Kovacs",
+                "id": 1,
+                "stack": 950
+            },
+            {
+                "name": "i failed to XSS",
+                "id": 2,
+                "stack": 930
+            },
+            {
+                "name": "bedre_bot",
+                "id": 3,
+                "stack": 2130
+            },
+            {
+                "name": "Enthusiast",
+                "id": 4,
+                "stack": 990
+            },
+            {
+                "name": "supermegapokerbot",
+                "id": 5,
+                "stack": 930
+            },
+            {
+                "name": "SimonTheDevMachine",
+                "id": 6,
+                "stack": 1070
+            }
+        ],
+        "defeated_players": [
+            {
+                "name": "AntonJorg",
+                "id": 0,
+                "stack": 0
+            }
+        ],
+        "hand_events": [
+            {
+                "type": "action",
+                "player": 0,
+                "action": 10
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 20
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "Td"
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "5h"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "5c"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "Jd"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "Qc"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "6s"
+            },
+            {
+                "type": "deal",
+                "player": 3,
+                "card": "Ad"
+            },
+            {
+                "type": "deal",
+                "player": 3,
+                "card": "5d"
+            },
+            {
+                "type": "deal",
+                "player": 4,
+                "card": "Ts"
+            },
+            {
+                "type": "deal",
+                "player": 4,
+                "card": "9s"
+            },
+            {
+                "type": "deal",
+                "player": 5,
+                "card": "8c"
+            },
+            {
+                "type": "deal",
+                "player": 5,
+                "card": "Jh"
+            },
+            {
+                "type": "action",
+                "player": 2,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 3,
+                "action": 40
+            },
+            {
+                "type": "action",
+                "player": 4,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 5,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 0,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 0
+            },
+            {
+                "type": "reward",
+                "player": 0,
+                "reward": -10.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 1,
+                "reward": -20.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 2,
+                "reward": 0.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 3,
+                "reward": 30.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 4,
+                "reward": 0.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 5,
+                "reward": 0.0,
+                "handtype": "HIGHCARD"
+            }
+        ]
+    },
+    {
+        "hand_count": 8,
+        "active_players": [
+            {
+                "name": "i failed to XSS",
+                "id": 2,
+                "stack": 910
+            },
+            {
+                "name": "bedre_bot",
+                "id": 3,
+                "stack": 2130
+            },
+            {
+                "name": "Enthusiast",
+                "id": 4,
+                "stack": 1020
+            },
+            {
+                "name": "supermegapokerbot",
+                "id": 5,
+                "stack": 930
+            },
+            {
+                "name": "SimonTheDevMachine",
+                "id": 6,
+                "stack": 1070
+            },
+            {
+                "name": "Kovacs",
+                "id": 1,
+                "stack": 940
+            }
+        ],
+        "defeated_players": [
+            {
+                "name": "AntonJorg",
+                "id": 0,
+                "stack": 0
+            }
+        ],
+        "hand_events": [
+            {
+                "type": "action",
+                "player": 0,
+                "action": 10
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 20
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "3s"
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "6s"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "8h"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "7c"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "6h"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "Ah"
+            },
+            {
+                "type": "deal",
+                "player": 3,
+                "card": "9d"
+            },
+            {
+                "type": "deal",
+                "player": 3,
+                "card": "6c"
+            },
+            {
+                "type": "deal",
+                "player": 4,
+                "card": "2d"
+            },
+            {
+                "type": "deal",
+                "player": 4,
+                "card": "3h"
+            },
+            {
+                "type": "deal",
+                "player": 5,
+                "card": "Jh"
+            },
+            {
+                "type": "deal",
+                "player": 5,
+                "card": "7h"
+            },
+            {
+                "type": "action",
+                "player": 2,
+                "action": 40
+            },
+            {
+                "type": "action",
+                "player": 3,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 4,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 5,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 0,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 0
+            },
+            {
+                "type": "reward",
+                "player": 0,
+                "reward": -10.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 1,
+                "reward": -20.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 2,
+                "reward": 30.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 3,
+                "reward": 0.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 4,
+                "reward": 0.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 5,
+                "reward": 0.0,
+                "handtype": "HIGHCARD"
+            }
+        ]
+    },
+    {
+        "hand_count": 9,
+        "active_players": [
+            {
+                "name": "bedre_bot",
+                "id": 3,
+                "stack": 2110
+            },
+            {
+                "name": "Enthusiast",
+                "id": 4,
+                "stack": 1050
+            },
+            {
+                "name": "supermegapokerbot",
+                "id": 5,
+                "stack": 930
+            },
+            {
+                "name": "SimonTheDevMachine",
+                "id": 6,
+                "stack": 1070
+            },
+            {
+                "name": "Kovacs",
+                "id": 1,
+                "stack": 940
+            },
+            {
+                "name": "i failed to XSS",
+                "id": 2,
+                "stack": 900
+            }
+        ],
+        "defeated_players": [
+            {
+                "name": "AntonJorg",
+                "id": 0,
+                "stack": 0
+            }
+        ],
+        "hand_events": [
+            {
+                "type": "action",
+                "player": 0,
+                "action": 10
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 20
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "Qd"
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "8d"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "8s"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "9h"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "Kd"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "Qh"
+            },
+            {
+                "type": "deal",
+                "player": 3,
+                "card": "4s"
+            },
+            {
+                "type": "deal",
+                "player": 3,
+                "card": "4c"
+            },
+            {
+                "type": "deal",
+                "player": 4,
+                "card": "7d"
+            },
+            {
+                "type": "deal",
+                "player": 4,
+                "card": "Js"
+            },
+            {
+                "type": "deal",
+                "player": 5,
+                "card": "9s"
+            },
+            {
+                "type": "deal",
+                "player": 5,
+                "card": "Jc"
+            },
+            {
+                "type": "action",
+                "player": 2,
+                "action": 40
+            },
+            {
+                "type": "action",
+                "player": 3,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 4,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 5,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 0,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 0
+            },
+            {
+                "type": "reward",
+                "player": 0,
+                "reward": -10.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 1,
+                "reward": -20.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 2,
+                "reward": 30.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 3,
+                "reward": 0.0,
+                "handtype": "PAIR"
+            },
+            {
+                "type": "reward",
+                "player": 4,
+                "reward": 0.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 5,
+                "reward": 0.0,
+                "handtype": "HIGHCARD"
+            }
+        ]
+    },
+    {
+        "hand_count": 10,
+        "active_players": [
+            {
+                "name": "Enthusiast",
+                "id": 4,
+                "stack": 1030
+            },
+            {
+                "name": "supermegapokerbot",
+                "id": 5,
+                "stack": 960
+            },
+            {
+                "name": "SimonTheDevMachine",
+                "id": 6,
+                "stack": 1070
+            },
+            {
+                "name": "Kovacs",
+                "id": 1,
+                "stack": 940
+            },
+            {
+                "name": "i failed to XSS",
+                "id": 2,
+                "stack": 900
+            },
+            {
+                "name": "bedre_bot",
+                "id": 3,
+                "stack": 2100
+            }
+        ],
+        "defeated_players": [
+            {
+                "name": "AntonJorg",
+                "id": 0,
+                "stack": 0
+            }
+        ],
+        "hand_events": [
+            {
+                "type": "action",
+                "player": 0,
+                "action": 10
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 20
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "7d"
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "7s"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "Ah"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "As"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "Kc"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "Jc"
+            },
+            {
+                "type": "deal",
+                "player": 3,
+                "card": "5d"
+            },
+            {
+                "type": "deal",
+                "player": 3,
+                "card": "9s"
+            },
+            {
+                "type": "deal",
+                "player": 4,
+                "card": "9c"
+            },
+            {
+                "type": "deal",
+                "player": 4,
+                "card": "3d"
+            },
+            {
+                "type": "deal",
+                "player": 5,
+                "card": "Kd"
+            },
+            {
+                "type": "deal",
+                "player": 5,
+                "card": "5c"
+            },
+            {
+                "type": "action",
+                "player": 2,
+                "action": 70
+            },
+            {
+                "type": "action",
+                "player": 3,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 4,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 5,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 0,
+                "action": 246
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 960
+            },
+            {
+                "type": "action",
+                "player": 2,
+                "action": 1070
+            },
+            {
+                "type": "action",
+                "player": 0,
+                "action": 1
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "6c"
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "Qh"
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "Qc"
+            },
+            {
+                "type": "win_chance",
+                "player": 0,
+                "win_chance": 0.0945945945945946
+            },
+            {
+                "type": "win_chance",
+                "player": 1,
+                "win_chance": 0.6786786786786787
+            },
+            {
+                "type": "win_chance",
+                "player": 2,
+                "win_chance": 0.22672672672672672
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "2d"
+            },
+            {
+                "type": "win_chance",
+                "player": 0,
+                "win_chance": 0.05555555555555555
+            },
+            {
+                "type": "win_chance",
+                "player": 1,
+                "win_chance": 0.8055555555555556
+            },
+            {
+                "type": "win_chance",
+                "player": 2,
+                "win_chance": 0.1388888888888889
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "Ts"
+            },
+            {
+                "type": "win_chance",
+                "player": 0,
+                "win_chance": 0.0
+            },
+            {
+                "type": "win_chance",
+                "player": 1,
+                "win_chance": 1.0
+            },
+            {
+                "type": "win_chance",
+                "player": 2,
+                "win_chance": 0.0
+            },
+            {
+                "type": "reward",
+                "player": 0,
+                "reward": -890.0,
+                "handtype": "TWOPAIR"
+            },
+            {
+                "type": "reward",
+                "player": 1,
+                "reward": 1920.0,
+                "handtype": "TWOPAIR"
+            },
+            {
+                "type": "reward",
+                "player": 2,
+                "reward": -1030.0,
+                "handtype": "PAIR"
+            },
+            {
+                "type": "reward",
+                "player": 3,
+                "reward": 0.0,
+                "handtype": "PAIR"
+            },
+            {
+                "type": "reward",
+                "player": 4,
+                "reward": 0.0,
+                "handtype": "PAIR"
+            },
+            {
+                "type": "reward",
+                "player": 5,
+                "reward": 0.0,
+                "handtype": "PAIR"
+            }
+        ]
+    },
+    {
+        "hand_count": 11,
+        "active_players": [
+            {
+                "name": "supermegapokerbot",
+                "id": 5,
+                "stack": 2880
+            },
+            {
+                "name": "SimonTheDevMachine",
+                "id": 6,
+                "stack": 40
+            },
+            {
+                "name": "Kovacs",
+                "id": 1,
+                "stack": 940
+            },
+            {
+                "name": "i failed to XSS",
+                "id": 2,
+                "stack": 900
+            },
+            {
+                "name": "bedre_bot",
+                "id": 3,
+                "stack": 2100
+            },
+            {
+                "name": "Enthusiast",
+                "id": 4,
+                "stack": 140
+            }
+        ],
+        "defeated_players": [
+            {
+                "name": "AntonJorg",
+                "id": 0,
+                "stack": 0
+            }
+        ],
+        "hand_events": [
+            {
+                "type": "action",
+                "player": 0,
+                "action": 10
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 20
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "2s"
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "6h"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "As"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "7h"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "3d"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "Ts"
+            },
+            {
+                "type": "deal",
+                "player": 3,
+                "card": "Qs"
+            },
+            {
+                "type": "deal",
+                "player": 3,
+                "card": "Ac"
+            },
+            {
+                "type": "deal",
+                "player": 4,
+                "card": "4c"
+            },
+            {
+                "type": "deal",
+                "player": 4,
+                "card": "9d"
+            },
+            {
+                "type": "deal",
+                "player": 5,
+                "card": "6d"
+            },
+            {
+                "type": "deal",
+                "player": 5,
+                "card": "Qh"
+            },
+            {
+                "type": "action",
+                "player": 2,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 3,
+                "action": 70
+            },
+            {
+                "type": "action",
+                "player": 4,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 5,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 0,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 1
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "2c"
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "3c"
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "9s"
+            },
+            {
+                "type": "win_chance",
+                "player": 1,
+                "win_chance": 0.13813813813813813
+            },
+            {
+                "type": "win_chance",
+                "player": 3,
+                "win_chance": 0.8258258258258259
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "Kc"
+            },
+            {
+                "type": "win_chance",
+                "player": 1,
+                "win_chance": 0.05555555555555555
+            },
+            {
+                "type": "win_chance",
+                "player": 3,
+                "win_chance": 0.9444444444444444
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "9c"
+            },
+            {
+                "type": "win_chance",
+                "player": 1,
+                "win_chance": 0.0
+            },
+            {
+                "type": "win_chance",
+                "player": 3,
+                "win_chance": 1.0
+            },
+            {
+                "type": "reward",
+                "player": 0,
+                "reward": -10.0,
+                "handtype": "TWOPAIR"
+            },
+            {
+                "type": "reward",
+                "player": 1,
+                "reward": -40.0,
+                "handtype": "PAIR"
+            },
+            {
+                "type": "reward",
+                "player": 2,
+                "reward": 0.0,
+                "handtype": "TWOPAIR"
+            },
+            {
+                "type": "reward",
+                "player": 3,
+                "reward": 50.0,
+                "handtype": "FLUSH"
+            },
+            {
+                "type": "reward",
+                "player": 4,
+                "reward": 0.0,
+                "handtype": "FLUSH"
+            },
+            {
+                "type": "reward",
+                "player": 5,
+                "reward": 0.0,
+                "handtype": "PAIR"
+            }
+        ]
+    },
+    {
+        "hand_count": 12,
+        "active_players": [
+            {
+                "name": "Kovacs",
+                "id": 1,
+                "stack": 940
+            },
+            {
+                "name": "i failed to XSS",
+                "id": 2,
+                "stack": 950
+            },
+            {
+                "name": "bedre_bot",
+                "id": 3,
+                "stack": 2100
+            },
+            {
+                "name": "Enthusiast",
+                "id": 4,
+                "stack": 140
+            },
+            {
+                "name": "supermegapokerbot",
+                "id": 5,
+                "stack": 2870
+            }
+        ],
+        "defeated_players": [
+            {
+                "name": "AntonJorg",
+                "id": 0,
+                "stack": 0
+            },
+            {
+                "name": "SimonTheDevMachine",
+                "id": 6,
+                "stack": 0
+            }
+        ],
+        "hand_events": [
+            {
+                "type": "action",
+                "player": 0,
+                "action": 10
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 20
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "Ac"
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "Kd"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "Tc"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "Kc"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "5h"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "4s"
+            },
+            {
+                "type": "deal",
+                "player": 3,
+                "card": "2c"
+            },
+            {
+                "type": "deal",
+                "player": 3,
+                "card": "3d"
+            },
+            {
+                "type": "deal",
+                "player": 4,
+                "card": "Qh"
+            },
+            {
+                "type": "deal",
+                "player": 4,
+                "card": "9h"
+            },
+            {
+                "type": "action",
+                "player": 2,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 3,
+                "action": 40
+            },
+            {
+                "type": "action",
+                "player": 4,
+                "action": 150
+            },
+            {
+                "type": "action",
+                "player": 0,
+                "action": 1
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 640
+            },
+            {
+                "type": "action",
+                "player": 3,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 4,
+                "action": 2110
+            },
+            {
+                "type": "action",
+                "player": 0,
+                "action": 1
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 1
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "Th"
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "9d"
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "Ks"
+            },
+            {
+                "type": "win_chance",
+                "player": 0,
+                "win_chance": 0.12550607287449392
+            },
+            {
+                "type": "win_chance",
+                "player": 1,
+                "win_chance": 0.5910931174089069
+            },
+            {
+                "type": "win_chance",
+                "player": 4,
+                "win_chance": 0.2807017543859649
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "3s"
+            },
+            {
+                "type": "win_chance",
+                "player": 0,
+                "win_chance": 0.07894736842105263
+            },
+            {
+                "type": "win_chance",
+                "player": 1,
+                "win_chance": 0.7631578947368421
+            },
+            {
+                "type": "win_chance",
+                "player": 4,
+                "win_chance": 0.15789473684210525
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "Ad"
+            },
+            {
+                "type": "win_chance",
+                "player": 0,
+                "win_chance": 1.0
+            },
+            {
+                "type": "win_chance",
+                "player": 1,
+                "win_chance": 0.0
+            },
+            {
+                "type": "win_chance",
+                "player": 4,
+                "win_chance": 0.0
+            },
+            {
+                "type": "reward",
+                "player": 0,
+                "reward": 1920.0,
+                "handtype": "TWOPAIR"
+            },
+            {
+                "type": "reward",
+                "player": 1,
+                "reward": -930.0,
+                "handtype": "TWOPAIR"
+            },
+            {
+                "type": "reward",
+                "player": 2,
+                "reward": 0.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 3,
+                "reward": -40.0,
+                "handtype": "PAIR"
+            },
+            {
+                "type": "reward",
+                "player": 4,
+                "reward": -950.0,
+                "handtype": "PAIR"
+            }
+        ]
+    },
+    {
+        "hand_count": 13,
+        "active_players": [
+            {
+                "name": "i failed to XSS",
+                "id": 2,
+                "stack": 20
+            },
+            {
+                "name": "bedre_bot",
+                "id": 3,
+                "stack": 2100
+            },
+            {
+                "name": "Enthusiast",
+                "id": 4,
+                "stack": 100
+            },
+            {
+                "name": "supermegapokerbot",
+                "id": 5,
+                "stack": 1920
+            },
+            {
+                "name": "Kovacs",
+                "id": 1,
+                "stack": 2860
+            }
+        ],
+        "defeated_players": [
+            {
+                "name": "AntonJorg",
+                "id": 0,
+                "stack": 0
+            },
+            {
+                "name": "SimonTheDevMachine",
+                "id": 6,
+                "stack": 0
+            }
+        ],
+        "hand_events": [
+            {
+                "type": "action",
+                "player": 0,
+                "action": 10
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 20
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "5c"
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "Ts"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "Ad"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "Jh"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "6s"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "4h"
+            },
+            {
+                "type": "deal",
+                "player": 3,
+                "card": "3s"
+            },
+            {
+                "type": "deal",
+                "player": 3,
+                "card": "5s"
+            },
+            {
+                "type": "deal",
+                "player": 4,
+                "card": "3c"
+            },
+            {
+                "type": "deal",
+                "player": 4,
+                "card": "Jc"
+            },
+            {
+                "type": "action",
+                "player": 2,
+                "action": 40
+            },
+            {
+                "type": "action",
+                "player": 3,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 4,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 0,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 130
+            },
+            {
+                "type": "action",
+                "player": 2,
+                "action": 0
+            },
+            {
+                "type": "reward",
+                "player": 0,
+                "reward": -10.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 1,
+                "reward": 50.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 2,
+                "reward": -40.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 3,
+                "reward": 0.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 4,
+                "reward": 0.0,
+                "handtype": "HIGHCARD"
+            }
+        ]
+    },
+    {
+        "hand_count": 14,
+        "active_players": [
+            {
+                "name": "Enthusiast",
+                "id": 4,
+                "stack": 60
+            },
+            {
+                "name": "supermegapokerbot",
+                "id": 5,
+                "stack": 1920
+            },
+            {
+                "name": "Kovacs",
+                "id": 1,
+                "stack": 2860
+            },
+            {
+                "name": "bedre_bot",
+                "id": 3,
+                "stack": 2150
+            }
+        ],
+        "defeated_players": [
+            {
+                "name": "AntonJorg",
+                "id": 0,
+                "stack": 0
+            },
+            {
+                "name": "SimonTheDevMachine",
+                "id": 6,
+                "stack": 0
+            },
+            {
+                "name": "i failed to XSS",
+                "id": 2,
+                "stack": 0
+            }
+        ],
+        "hand_events": [
+            {
+                "type": "action",
+                "player": 0,
+                "action": 10
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 20
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "Jh"
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "Ks"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "9c"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "4s"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "4h"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "Kd"
+            },
+            {
+                "type": "deal",
+                "player": 3,
+                "card": "5s"
+            },
+            {
+                "type": "deal",
+                "player": 3,
+                "card": "Jd"
+            },
+            {
+                "type": "action",
+                "player": 2,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 3,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 0,
+                "action": 40
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 0
+            },
+            {
+                "type": "reward",
+                "player": 0,
+                "reward": 20.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 1,
+                "reward": -20.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 2,
+                "reward": 0.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 3,
+                "reward": 0.0,
+                "handtype": "HIGHCARD"
+            }
+        ]
+    },
+    {
+        "hand_count": 15,
+        "active_players": [
+            {
+                "name": "supermegapokerbot",
+                "id": 5,
+                "stack": 1900
+            },
+            {
+                "name": "Kovacs",
+                "id": 1,
+                "stack": 2860
+            },
+            {
+                "name": "bedre_bot",
+                "id": 3,
+                "stack": 2150
+            },
+            {
+                "name": "Enthusiast",
+                "id": 4,
+                "stack": 80
+            }
+        ],
+        "defeated_players": [
+            {
+                "name": "AntonJorg",
+                "id": 0,
+                "stack": 0
+            },
+            {
+                "name": "SimonTheDevMachine",
+                "id": 6,
+                "stack": 0
+            },
+            {
+                "name": "i failed to XSS",
+                "id": 2,
+                "stack": 0
+            }
+        ],
+        "hand_events": [
+            {
+                "type": "action",
+                "player": 0,
+                "action": 10
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 20
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "6h"
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "Kh"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "6c"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "9d"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "8d"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "Jc"
+            },
+            {
+                "type": "deal",
+                "player": 3,
+                "card": "Qd"
+            },
+            {
+                "type": "deal",
+                "player": 3,
+                "card": "5c"
+            },
+            {
+                "type": "action",
+                "player": 2,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 3,
+                "action": 40
+            },
+            {
+                "type": "action",
+                "player": 0,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 0
+            },
+            {
+                "type": "reward",
+                "player": 0,
+                "reward": -10.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 1,
+                "reward": -20.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 2,
+                "reward": 0.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 3,
+                "reward": 30.0,
+                "handtype": "HIGHCARD"
+            }
+        ]
+    },
+    {
+        "hand_count": 16,
+        "active_players": [
+            {
+                "name": "Kovacs",
+                "id": 1,
+                "stack": 2840
+            },
+            {
+                "name": "bedre_bot",
+                "id": 3,
+                "stack": 2150
+            },
+            {
+                "name": "Enthusiast",
+                "id": 4,
+                "stack": 110
+            },
+            {
+                "name": "supermegapokerbot",
+                "id": 5,
+                "stack": 1890
+            }
+        ],
+        "defeated_players": [
+            {
+                "name": "AntonJorg",
+                "id": 0,
+                "stack": 0
+            },
+            {
+                "name": "SimonTheDevMachine",
+                "id": 6,
+                "stack": 0
+            },
+            {
+                "name": "i failed to XSS",
+                "id": 2,
+                "stack": 0
+            }
+        ],
+        "hand_events": [
+            {
+                "type": "action",
+                "player": 0,
+                "action": 10
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 20
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "Js"
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "8c"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "6d"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "2h"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "Kc"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "5c"
+            },
+            {
+                "type": "deal",
+                "player": 3,
+                "card": "Kh"
+            },
+            {
+                "type": "deal",
+                "player": 3,
+                "card": "3s"
+            },
+            {
+                "type": "action",
+                "player": 2,
+                "action": 40
+            },
+            {
+                "type": "action",
+                "player": 3,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 0,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 0
+            },
+            {
+                "type": "reward",
+                "player": 0,
+                "reward": -10.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 1,
+                "reward": -20.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 2,
+                "reward": 30.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 3,
+                "reward": 0.0,
+                "handtype": "HIGHCARD"
+            }
+        ]
+    },
+    {
+        "hand_count": 17,
+        "active_players": [
+            {
+                "name": "bedre_bot",
+                "id": 3,
+                "stack": 2130
+            },
+            {
+                "name": "Enthusiast",
+                "id": 4,
+                "stack": 140
+            },
+            {
+                "name": "supermegapokerbot",
+                "id": 5,
+                "stack": 1890
+            },
+            {
+                "name": "Kovacs",
+                "id": 1,
+                "stack": 2830
+            }
+        ],
+        "defeated_players": [
+            {
+                "name": "AntonJorg",
+                "id": 0,
+                "stack": 0
+            },
+            {
+                "name": "SimonTheDevMachine",
+                "id": 6,
+                "stack": 0
+            },
+            {
+                "name": "i failed to XSS",
+                "id": 2,
+                "stack": 0
+            }
+        ],
+        "hand_events": [
+            {
+                "type": "action",
+                "player": 0,
+                "action": 10
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 20
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "9d"
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "Tc"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "5s"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "5h"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "Qd"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "4s"
+            },
+            {
+                "type": "deal",
+                "player": 3,
+                "card": "7d"
+            },
+            {
+                "type": "deal",
+                "player": 3,
+                "card": "Jc"
+            },
+            {
+                "type": "action",
+                "player": 2,
+                "action": 40
+            },
+            {
+                "type": "action",
+                "player": 3,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 0,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 139
+            },
+            {
+                "type": "action",
+                "player": 2,
+                "action": 0
+            },
+            {
+                "type": "reward",
+                "player": 0,
+                "reward": -10.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 1,
+                "reward": 50.0,
+                "handtype": "PAIR"
+            },
+            {
+                "type": "reward",
+                "player": 2,
+                "reward": -40.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 3,
+                "reward": 0.0,
+                "handtype": "HIGHCARD"
+            }
+        ]
+    },
+    {
+        "hand_count": 18,
+        "active_players": [
+            {
+                "name": "Enthusiast",
+                "id": 4,
+                "stack": 190
+            },
+            {
+                "name": "supermegapokerbot",
+                "id": 5,
+                "stack": 1850
+            },
+            {
+                "name": "Kovacs",
+                "id": 1,
+                "stack": 2830
+            },
+            {
+                "name": "bedre_bot",
+                "id": 3,
+                "stack": 2120
+            }
+        ],
+        "defeated_players": [
+            {
+                "name": "AntonJorg",
+                "id": 0,
+                "stack": 0
+            },
+            {
+                "name": "SimonTheDevMachine",
+                "id": 6,
+                "stack": 0
+            },
+            {
+                "name": "i failed to XSS",
+                "id": 2,
+                "stack": 0
+            }
+        ],
+        "hand_events": [
+            {
+                "type": "action",
+                "player": 0,
+                "action": 10
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 20
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "2c"
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "Jd"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "8s"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "9s"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "3c"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "5s"
+            },
+            {
+                "type": "deal",
+                "player": 3,
+                "card": "Ts"
+            },
+            {
+                "type": "deal",
+                "player": 3,
+                "card": "Th"
+            },
+            {
+                "type": "action",
+                "player": 2,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 3,
+                "action": 70
+            },
+            {
+                "type": "action",
+                "player": 0,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 0
+            },
+            {
+                "type": "reward",
+                "player": 0,
+                "reward": -10.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 1,
+                "reward": -20.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 2,
+                "reward": 0.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 3,
+                "reward": 30.0,
+                "handtype": "PAIR"
+            }
+        ]
+    },
+    {
+        "hand_count": 19,
+        "active_players": [
+            {
+                "name": "supermegapokerbot",
+                "id": 5,
+                "stack": 1830
+            },
+            {
+                "name": "Kovacs",
+                "id": 1,
+                "stack": 2830
+            },
+            {
+                "name": "bedre_bot",
+                "id": 3,
+                "stack": 2150
+            },
+            {
+                "name": "Enthusiast",
+                "id": 4,
+                "stack": 180
+            }
+        ],
+        "defeated_players": [
+            {
+                "name": "AntonJorg",
+                "id": 0,
+                "stack": 0
+            },
+            {
+                "name": "SimonTheDevMachine",
+                "id": 6,
+                "stack": 0
+            },
+            {
+                "name": "i failed to XSS",
+                "id": 2,
+                "stack": 0
+            }
+        ],
+        "hand_events": [
+            {
+                "type": "action",
+                "player": 0,
+                "action": 10
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 20
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "Qd"
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "9h"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "Td"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "9s"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "Kd"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "5h"
+            },
+            {
+                "type": "deal",
+                "player": 3,
+                "card": "4d"
+            },
+            {
+                "type": "deal",
+                "player": 3,
+                "card": "8s"
+            },
+            {
+                "type": "action",
+                "player": 2,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 3,
+                "action": 40
+            },
+            {
+                "type": "action",
+                "player": 0,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 1
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "7c"
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "3d"
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "4c"
+            },
+            {
+                "type": "win_chance",
+                "player": 1,
+                "win_chance": 0.2304878048780488
+            },
+            {
+                "type": "win_chance",
+                "player": 3,
+                "win_chance": 0.7695121951219512
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 1
+            },
+            {
+                "type": "action",
+                "player": 3,
+                "action": 60
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 0
+            },
+            {
+                "type": "reward",
+                "player": 0,
+                "reward": -10.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 1,
+                "reward": -40.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 2,
+                "reward": 0.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 3,
+                "reward": 50.0,
+                "handtype": "PAIR"
+            }
+        ]
+    },
+    {
+        "hand_count": 20,
+        "active_players": [
+            {
+                "name": "Kovacs",
+                "id": 1,
+                "stack": 2790
+            },
+            {
+                "name": "bedre_bot",
+                "id": 3,
+                "stack": 2150
+            },
+            {
+                "name": "Enthusiast",
+                "id": 4,
+                "stack": 230
+            },
+            {
+                "name": "supermegapokerbot",
+                "id": 5,
+                "stack": 1820
+            }
+        ],
+        "defeated_players": [
+            {
+                "name": "AntonJorg",
+                "id": 0,
+                "stack": 0
+            },
+            {
+                "name": "SimonTheDevMachine",
+                "id": 6,
+                "stack": 0
+            },
+            {
+                "name": "i failed to XSS",
+                "id": 2,
+                "stack": 0
+            }
+        ],
+        "hand_events": [
+            {
+                "type": "action",
+                "player": 0,
+                "action": 10
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 20
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "6d"
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "Kh"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "5h"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "Ad"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "9c"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "Qd"
+            },
+            {
+                "type": "deal",
+                "player": 3,
+                "card": "Qc"
+            },
+            {
+                "type": "deal",
+                "player": 3,
+                "card": "6c"
+            },
+            {
+                "type": "action",
+                "player": 2,
+                "action": 40
+            },
+            {
+                "type": "action",
+                "player": 3,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 0,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 0
+            },
+            {
+                "type": "reward",
+                "player": 0,
+                "reward": -10.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 1,
+                "reward": -20.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 2,
+                "reward": 30.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 3,
+                "reward": 0.0,
+                "handtype": "HIGHCARD"
+            }
+        ]
+    },
+    {
+        "hand_count": 21,
+        "active_players": [
+            {
+                "name": "bedre_bot",
+                "id": 3,
+                "stack": 2130
+            },
+            {
+                "name": "Enthusiast",
+                "id": 4,
+                "stack": 260
+            },
+            {
+                "name": "supermegapokerbot",
+                "id": 5,
+                "stack": 1820
+            },
+            {
+                "name": "Kovacs",
+                "id": 1,
+                "stack": 2780
+            }
+        ],
+        "defeated_players": [
+            {
+                "name": "AntonJorg",
+                "id": 0,
+                "stack": 0
+            },
+            {
+                "name": "SimonTheDevMachine",
+                "id": 6,
+                "stack": 0
+            },
+            {
+                "name": "i failed to XSS",
+                "id": 2,
+                "stack": 0
+            }
+        ],
+        "hand_events": [
+            {
+                "type": "action",
+                "player": 0,
+                "action": 15
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 30
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "3d"
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "3s"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "4c"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "4d"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "6h"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "3h"
+            },
+            {
+                "type": "deal",
+                "player": 3,
+                "card": "Ac"
+            },
+            {
+                "type": "deal",
+                "player": 3,
+                "card": "Kh"
+            },
+            {
+                "type": "action",
+                "player": 2,
+                "action": 60
+            },
+            {
+                "type": "action",
+                "player": 3,
+                "action": 1
+            },
+            {
+                "type": "action",
+                "player": 0,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 0
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "Ts"
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "2s"
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "6d"
+            },
+            {
+                "type": "win_chance",
+                "player": 2,
+                "win_chance": 0.7280487804878049
+            },
+            {
+                "type": "win_chance",
+                "player": 3,
+                "win_chance": 0.27195121951219514
+            },
+            {
+                "type": "action",
+                "player": 2,
+                "action": 90
+            },
+            {
+                "type": "action",
+                "player": 3,
+                "action": 315
+            },
+            {
+                "type": "action",
+                "player": 2,
+                "action": 990
+            },
+            {
+                "type": "action",
+                "player": 3,
+                "action": 2780
+            },
+            {
+                "type": "action",
+                "player": 2,
+                "action": 1
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "Jc"
+            },
+            {
+                "type": "win_chance",
+                "player": 2,
+                "win_chance": 0.75
+            },
+            {
+                "type": "win_chance",
+                "player": 3,
+                "win_chance": 0.25
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "9h"
+            },
+            {
+                "type": "win_chance",
+                "player": 2,
+                "win_chance": 1.0
+            },
+            {
+                "type": "win_chance",
+                "player": 3,
+                "win_chance": 0.0
+            },
+            {
+                "type": "reward",
+                "player": 0,
+                "reward": -15.0,
+                "handtype": "PAIR"
+            },
+            {
+                "type": "reward",
+                "player": 1,
+                "reward": -30.0,
+                "handtype": "PAIR"
+            },
+            {
+                "type": "reward",
+                "player": 2,
+                "reward": 1865.0,
+                "handtype": "PAIR"
+            },
+            {
+                "type": "reward",
+                "player": 3,
+                "reward": -1820.0,
+                "handtype": "HIGHCARD"
+            }
+        ]
+    },
+    {
+        "hand_count": 22,
+        "active_players": [
+            {
+                "name": "Enthusiast",
+                "id": 4,
+                "stack": 230
+            },
+            {
+                "name": "supermegapokerbot",
+                "id": 5,
+                "stack": 3685
+            },
+            {
+                "name": "Kovacs",
+                "id": 1,
+                "stack": 960
+            },
+            {
+                "name": "bedre_bot",
+                "id": 3,
+                "stack": 2115
+            }
+        ],
+        "defeated_players": [
+            {
+                "name": "AntonJorg",
+                "id": 0,
+                "stack": 0
+            },
+            {
+                "name": "SimonTheDevMachine",
+                "id": 6,
+                "stack": 0
+            },
+            {
+                "name": "i failed to XSS",
+                "id": 2,
+                "stack": 0
+            }
+        ],
+        "hand_events": [
+            {
+                "type": "action",
+                "player": 0,
+                "action": 15
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 30
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "4d"
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "7c"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "6d"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "3h"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "Kc"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "Ad"
+            },
+            {
+                "type": "deal",
+                "player": 3,
+                "card": "6h"
+            },
+            {
+                "type": "deal",
+                "player": 3,
+                "card": "Ah"
+            },
+            {
+                "type": "action",
+                "player": 2,
+                "action": 960
+            },
+            {
+                "type": "action",
+                "player": 3,
+                "action": 2115
+            },
+            {
+                "type": "action",
+                "player": 0,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 0
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "9d"
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "4c"
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "Th"
+            },
+            {
+                "type": "win_chance",
+                "player": 2,
+                "win_chance": 0.8292682926829268
+            },
+            {
+                "type": "win_chance",
+                "player": 3,
+                "win_chance": 0.14634146341463414
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "Ks"
+            },
+            {
+                "type": "win_chance",
+                "player": 2,
+                "win_chance": 1.0
+            },
+            {
+                "type": "win_chance",
+                "player": 3,
+                "win_chance": 0.0
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "Jc"
+            },
+            {
+                "type": "win_chance",
+                "player": 2,
+                "win_chance": 1.0
+            },
+            {
+                "type": "win_chance",
+                "player": 3,
+                "win_chance": 0.0
+            },
+            {
+                "type": "reward",
+                "player": 0,
+                "reward": -15.0,
+                "handtype": "PAIR"
+            },
+            {
+                "type": "reward",
+                "player": 1,
+                "reward": -30.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 2,
+                "reward": 1005.0,
+                "handtype": "PAIR"
+            },
+            {
+                "type": "reward",
+                "player": 3,
+                "reward": -960.0,
+                "handtype": "HIGHCARD"
+            }
+        ]
+    },
+    {
+        "hand_count": 23,
+        "active_players": [
+            {
+                "name": "supermegapokerbot",
+                "id": 5,
+                "stack": 3655
+            },
+            {
+                "name": "Kovacs",
+                "id": 1,
+                "stack": 1965
+            },
+            {
+                "name": "bedre_bot",
+                "id": 3,
+                "stack": 1155
+            },
+            {
+                "name": "Enthusiast",
+                "id": 4,
+                "stack": 215
+            }
+        ],
+        "defeated_players": [
+            {
+                "name": "AntonJorg",
+                "id": 0,
+                "stack": 0
+            },
+            {
+                "name": "SimonTheDevMachine",
+                "id": 6,
+                "stack": 0
+            },
+            {
+                "name": "i failed to XSS",
+                "id": 2,
+                "stack": 0
+            }
+        ],
+        "hand_events": [
+            {
+                "type": "action",
+                "player": 0,
+                "action": 15
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 30
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "Qc"
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "7c"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "9d"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "9s"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "Td"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "Jd"
+            },
+            {
+                "type": "deal",
+                "player": 3,
+                "card": "7h"
+            },
+            {
+                "type": "deal",
+                "player": 3,
+                "card": "8s"
+            },
+            {
+                "type": "action",
+                "player": 2,
+                "action": 1
+            },
+            {
+                "type": "action",
+                "player": 3,
+                "action": 60
+            },
+            {
+                "type": "action",
+                "player": 0,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 1965
+            },
+            {
+                "type": "action",
+                "player": 2,
+                "action": 1
+            },
+            {
+                "type": "action",
+                "player": 3,
+                "action": 0
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "4d"
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "7s"
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "9c"
+            },
+            {
+                "type": "win_chance",
+                "player": 1,
+                "win_chance": 0.8402439024390244
+            },
+            {
+                "type": "win_chance",
+                "player": 2,
+                "win_chance": 0.1597560975609756
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "4h"
+            },
+            {
+                "type": "win_chance",
+                "player": 1,
+                "win_chance": 1.0
+            },
+            {
+                "type": "win_chance",
+                "player": 2,
+                "win_chance": 0.0
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "2h"
+            },
+            {
+                "type": "win_chance",
+                "player": 1,
+                "win_chance": 1.0
+            },
+            {
+                "type": "win_chance",
+                "player": 2,
+                "win_chance": 0.0
+            },
+            {
+                "type": "reward",
+                "player": 0,
+                "reward": -15.0,
+                "handtype": "TWOPAIR"
+            },
+            {
+                "type": "reward",
+                "player": 1,
+                "reward": 1230.0,
+                "handtype": "FULLHOUSE"
+            },
+            {
+                "type": "reward",
+                "player": 2,
+                "reward": -1155.0,
+                "handtype": "PAIR"
+            },
+            {
+                "type": "reward",
+                "player": 3,
+                "reward": -60.0,
+                "handtype": "TWOPAIR"
+            }
+        ]
+    },
+    {
+        "hand_count": 24,
+        "active_players": [
+            {
+                "name": "Kovacs",
+                "id": 1,
+                "stack": 3195
+            },
+            {
+                "name": "Enthusiast",
+                "id": 4,
+                "stack": 155
+            },
+            {
+                "name": "supermegapokerbot",
+                "id": 5,
+                "stack": 3640
+            }
+        ],
+        "defeated_players": [
+            {
+                "name": "AntonJorg",
+                "id": 0,
+                "stack": 0
+            },
+            {
+                "name": "SimonTheDevMachine",
+                "id": 6,
+                "stack": 0
+            },
+            {
+                "name": "i failed to XSS",
+                "id": 2,
+                "stack": 0
+            },
+            {
+                "name": "bedre_bot",
+                "id": 3,
+                "stack": 0
+            }
+        ],
+        "hand_events": [
+            {
+                "type": "action",
+                "player": 0,
+                "action": 15
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 30
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "Ks"
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "Qd"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "Js"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "Kh"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "Kd"
+            },
+            {
+                "type": "deal",
+                "player": 2,
+                "card": "2s"
+            },
+            {
+                "type": "action",
+                "player": 2,
+                "action": 60
+            },
+            {
+                "type": "action",
+                "player": 0,
+                "action": 1
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 155
+            },
+            {
+                "type": "action",
+                "player": 2,
+                "action": 0
+            },
+            {
+                "type": "action",
+                "player": 0,
+                "action": 1
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "As"
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "9d"
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "3d"
+            },
+            {
+                "type": "win_chance",
+                "player": 0,
+                "win_chance": 0.8383167220376523
+            },
+            {
+                "type": "win_chance",
+                "player": 1,
+                "win_chance": 0.1184939091915836
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "7s"
+            },
+            {
+                "type": "win_chance",
+                "player": 0,
+                "win_chance": 0.9285714285714286
+            },
+            {
+                "type": "win_chance",
+                "player": 1,
+                "win_chance": 0.07142857142857142
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "5s"
+            },
+            {
+                "type": "win_chance",
+                "player": 0,
+                "win_chance": 1.0
+            },
+            {
+                "type": "win_chance",
+                "player": 1,
+                "win_chance": 0.0
+            },
+            {
+                "type": "reward",
+                "player": 0,
+                "reward": 215.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 1,
+                "reward": -155.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 2,
+                "reward": -60.0,
+                "handtype": "HIGHCARD"
+            }
+        ]
+    },
+    {
+        "hand_count": 25,
+        "active_players": [
+            {
+                "name": "supermegapokerbot",
+                "id": 5,
+                "stack": 3580
+            },
+            {
+                "name": "Kovacs",
+                "id": 1,
+                "stack": 3410
+            }
+        ],
+        "defeated_players": [
+            {
+                "name": "AntonJorg",
+                "id": 0,
+                "stack": 0
+            },
+            {
+                "name": "SimonTheDevMachine",
+                "id": 6,
+                "stack": 0
+            },
+            {
+                "name": "i failed to XSS",
+                "id": 2,
+                "stack": 0
+            },
+            {
+                "name": "bedre_bot",
+                "id": 3,
+                "stack": 0
+            },
+            {
+                "name": "Enthusiast",
+                "id": 4,
+                "stack": 0
+            }
+        ],
+        "hand_events": [
+            {
+                "type": "action",
+                "player": 0,
+                "action": 15
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 30
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "Ad"
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "8s"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "5d"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "2h"
+            },
+            {
+                "type": "action",
+                "player": 0,
+                "action": 60
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 0
+            },
+            {
+                "type": "reward",
+                "player": 0,
+                "reward": 30.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 1,
+                "reward": -30.0,
+                "handtype": "HIGHCARD"
+            }
+        ]
+    },
+    {
+        "hand_count": 26,
+        "active_players": [
+            {
+                "name": "Kovacs",
+                "id": 1,
+                "stack": 3380
+            },
+            {
+                "name": "supermegapokerbot",
+                "id": 5,
+                "stack": 3610
+            }
+        ],
+        "defeated_players": [
+            {
+                "name": "AntonJorg",
+                "id": 0,
+                "stack": 0
+            },
+            {
+                "name": "SimonTheDevMachine",
+                "id": 6,
+                "stack": 0
+            },
+            {
+                "name": "i failed to XSS",
+                "id": 2,
+                "stack": 0
+            },
+            {
+                "name": "bedre_bot",
+                "id": 3,
+                "stack": 0
+            },
+            {
+                "name": "Enthusiast",
+                "id": 4,
+                "stack": 0
+            }
+        ],
+        "hand_events": [
+            {
+                "type": "action",
+                "player": 0,
+                "action": 15
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 30
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "Jc"
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "7h"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "9h"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "Kd"
+            },
+            {
+                "type": "action",
+                "player": 0,
+                "action": 0
+            },
+            {
+                "type": "reward",
+                "player": 0,
+                "reward": -15.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 1,
+                "reward": 15.0,
+                "handtype": "HIGHCARD"
+            }
+        ]
+    },
+    {
+        "hand_count": 27,
+        "active_players": [
+            {
+                "name": "supermegapokerbot",
+                "id": 5,
+                "stack": 3625
+            },
+            {
+                "name": "Kovacs",
+                "id": 1,
+                "stack": 3365
+            }
+        ],
+        "defeated_players": [
+            {
+                "name": "AntonJorg",
+                "id": 0,
+                "stack": 0
+            },
+            {
+                "name": "SimonTheDevMachine",
+                "id": 6,
+                "stack": 0
+            },
+            {
+                "name": "i failed to XSS",
+                "id": 2,
+                "stack": 0
+            },
+            {
+                "name": "bedre_bot",
+                "id": 3,
+                "stack": 0
+            },
+            {
+                "name": "Enthusiast",
+                "id": 4,
+                "stack": 0
+            }
+        ],
+        "hand_events": [
+            {
+                "type": "action",
+                "player": 0,
+                "action": 15
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 30
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "8h"
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "Jd"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "Qd"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "Kh"
+            },
+            {
+                "type": "action",
+                "player": 0,
+                "action": 60
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 1
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "6h"
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "5d"
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "3s"
+            },
+            {
+                "type": "win_chance",
+                "player": 0,
+                "win_chance": 0.2474747474747475
+            },
+            {
+                "type": "win_chance",
+                "player": 1,
+                "win_chance": 0.7363636363636363
+            },
+            {
+                "type": "action",
+                "player": 0,
+                "action": 90
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 270
+            },
+            {
+                "type": "action",
+                "player": 0,
+                "action": 0
+            },
+            {
+                "type": "reward",
+                "player": 0,
+                "reward": -90.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 1,
+                "reward": 90.0,
+                "handtype": "HIGHCARD"
+            }
+        ]
+    },
+    {
+        "hand_count": 28,
+        "active_players": [
+            {
+                "name": "Kovacs",
+                "id": 1,
+                "stack": 3455
+            },
+            {
+                "name": "supermegapokerbot",
+                "id": 5,
+                "stack": 3535
+            }
+        ],
+        "defeated_players": [
+            {
+                "name": "AntonJorg",
+                "id": 0,
+                "stack": 0
+            },
+            {
+                "name": "SimonTheDevMachine",
+                "id": 6,
+                "stack": 0
+            },
+            {
+                "name": "i failed to XSS",
+                "id": 2,
+                "stack": 0
+            },
+            {
+                "name": "bedre_bot",
+                "id": 3,
+                "stack": 0
+            },
+            {
+                "name": "Enthusiast",
+                "id": 4,
+                "stack": 0
+            }
+        ],
+        "hand_events": [
+            {
+                "type": "action",
+                "player": 0,
+                "action": 15
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 30
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "6d"
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "Tc"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "3s"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "8h"
+            },
+            {
+                "type": "action",
+                "player": 0,
+                "action": 0
+            },
+            {
+                "type": "reward",
+                "player": 0,
+                "reward": -15.0,
+                "handtype": "HIGHCARD"
+            },
+            {
+                "type": "reward",
+                "player": 1,
+                "reward": 15.0,
+                "handtype": "HIGHCARD"
+            }
+        ]
+    },
+    {
+        "hand_count": 29,
+        "active_players": [
+            {
+                "name": "supermegapokerbot",
+                "id": 5,
+                "stack": 3550
+            },
+            {
+                "name": "Kovacs",
+                "id": 1,
+                "stack": 3440
+            }
+        ],
+        "defeated_players": [
+            {
+                "name": "AntonJorg",
+                "id": 0,
+                "stack": 0
+            },
+            {
+                "name": "SimonTheDevMachine",
+                "id": 6,
+                "stack": 0
+            },
+            {
+                "name": "i failed to XSS",
+                "id": 2,
+                "stack": 0
+            },
+            {
+                "name": "bedre_bot",
+                "id": 3,
+                "stack": 0
+            },
+            {
+                "name": "Enthusiast",
+                "id": 4,
+                "stack": 0
+            }
+        ],
+        "hand_events": [
+            {
+                "type": "action",
+                "player": 0,
+                "action": 15
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 30
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "7d"
+            },
+            {
+                "type": "deal",
+                "player": 0,
+                "card": "Jh"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "9s"
+            },
+            {
+                "type": "deal",
+                "player": 1,
+                "card": "Th"
+            },
+            {
+                "type": "action",
+                "player": 0,
+                "action": 60
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 1
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "5d"
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "4d"
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "5c"
+            },
+            {
+                "type": "win_chance",
+                "player": 0,
+                "win_chance": 0.7363636363636363
+            },
+            {
+                "type": "win_chance",
+                "player": 1,
+                "win_chance": 0.21818181818181817
+            },
+            {
+                "type": "action",
+                "player": 0,
+                "action": 90
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 270
+            },
+            {
+                "type": "action",
+                "player": 0,
+                "action": 810
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 2430
+            },
+            {
+                "type": "action",
+                "player": 0,
+                "action": 3550
+            },
+            {
+                "type": "action",
+                "player": 1,
+                "action": 1
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "As"
+            },
+            {
+                "type": "win_chance",
+                "player": 0,
+                "win_chance": 0.7954545454545454
+            },
+            {
+                "type": "win_chance",
+                "player": 1,
+                "win_chance": 0.13636363636363635
+            },
+            {
+                "type": "deal",
+                "player": -1,
+                "action": "5h"
+            },
+            {
+                "type": "win_chance",
+                "player": 0,
+                "win_chance": 1.0
+            },
+            {
+                "type": "win_chance",
+                "player": 1,
+                "win_chance": 0.0
+            },
+            {
+                "type": "reward",
+                "player": 0,
+                "reward": 3440.0,
+                "handtype": "THREEOFAKIND"
+            },
+            {
+                "type": "reward",
+                "player": 1,
+                "reward": -3440.0,
+                "handtype": "THREEOFAKIND"
+            }
+        ]
+    }
+]
